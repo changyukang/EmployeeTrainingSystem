@@ -1,11 +1,24 @@
 # README
-## Site display
-![Site display](./README/1.png)
-## Quiz list
-![Quiz list](./README/5.png)
-## Page create
-![Page create](./README/4.png)
-## Quiz create
-![Quiz create](./README/6.png)
-## Layout setting
-![Layout setting](./README/3.png)
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...

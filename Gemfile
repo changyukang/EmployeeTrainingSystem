@@ -11,8 +11,14 @@ gem 'mysql2', '>= 0.4.4'
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5'
+
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+
+gem 'uglifier', '~> 3.0'
+gem 'coffee-rails', '~> 5.0'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 4.x'
+gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -20,7 +26,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -40,24 +46,20 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-
-  #Better errors gems (helpful for debugging)
-  gem 'better_errors', '~> 2.1', '>= 2.1.1'
-  gem "binding_of_caller"
 end
 
 group :test do
+  gem 'rails-controller-testing', '~> 0.0.3'
+  gem 'minitest', '~> 5.11', '>= 5.11.3'
+  gem 'minitest-reporters',       '1.1.14'
+  gem 'guard',                    '2.13.0'
+  gem 'guard-minitest',           '2.4.4'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
-
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-# gem 'monologue'
-gem "comfortable_mexican_sofa", "~> 2.0.0"
-gem "comfy_blog", "~> 2.0.0"
-gem 'will_paginate', '~> 3.1.0'

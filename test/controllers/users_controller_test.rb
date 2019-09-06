@@ -1,10 +1,11 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-  ##
-  #setup do
-  #  @user = users(:one)
-  #end
+  setup do
+    @user = users(:testuser)
+  end
+
+  #Need to change tests due to redirecting when someone not logged in tries to access
 
   #test "should get index" do
   #  get users_url
@@ -18,12 +19,15 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   #test "should create user" do
   #  assert_difference('User.count') do
+  #    post users_url, params: { user: { email: 'test45@gmail.com', name: 'Test Me', password: 'password'} }
+  #  end
 
-   #   post users_url, params: { user: { email: @user.email, name: @user.name } }
-   # end
-
-    #assert_redirected_to user_url(User.last)
+  #  assert_redirected_to user_url(User.last)
   #end
+
+  
+
+
 
   #test "should show user" do
   #  get user_url(@user)

@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create!(name:  "Admin",
-             email: "example@railstutorial.org",
+             email: "admin@gmail.com",
              password:              "foobar",
              password_confirmation: "foobar",
              admin: true)
@@ -14,7 +14,8 @@ User.create!(name:  "Admin",
 User.create!(name:  "Daniel",
              email: "daniel@gmail.com",
              password:              "123456",
-             password_confirmation: "123456")
+             password_confirmation: "123456",
+             authority_level: 1)
 
 User.create!(name:  "Jolie",
              email: "jolie@gmail.com",

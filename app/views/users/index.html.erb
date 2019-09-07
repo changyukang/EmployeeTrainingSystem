@@ -30,7 +30,7 @@
 <h1>All users</h1>
 
 <% if user_auth?(1) %>
-  <li><%= link_to "Add User", new_user_path %></li>
+  <%= link_to "Add User", new_user_path, class: "btn btn-lg btn-primary" %>
 <% end %>
 
 <ul class="users">

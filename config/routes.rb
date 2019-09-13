@@ -8,14 +8,9 @@ Rails.application.routes.draw do
   	get  '/signup',  to: 'users#new'
   	get    '/login',   to: 'sessions#new'
   	post   '/login',   to: 'sessions#create'
-<<<<<<< HEAD
-	delete '/logout',  to: 'sessions#destroyo'
-	get  '/courses',  to: 'static_pages#courses'
+	delete '/logout',  to: 'sessions#destroy'
 	get  '/wiki',   to: 'static_pages#wiki'
 	get  '/quiz',    to: 'static_pages#quiz'
-=======
-	delete '/logout',  to: 'sessions#destroy'
->>>>>>> 4eddec4e6802e5ecfda37ca01a0bba80fc72db7c
   	resources :users
 	
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

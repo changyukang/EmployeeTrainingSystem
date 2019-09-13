@@ -9,7 +9,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700&amp;subset=latin-ext&amp;display=swap" rel="stylesheet">
+  <%# <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700&amp;subset=latin-ext&amp;display=swap" rel="stylesheet"> %>
     <script>if (navigator.userAgent.match(/(MSIE|Trident\/)/)) location.replace('/ie-is-not-supported.html')</script>
   <script>
 //<![CDATA[
@@ -28,14 +28,14 @@
   <script>window.fetchIgnoredByNewRelic = window.fetch</script>
   <link rel="shortcut icon" type="image/x-icon" href="https://instructure-uploads-apse2.s3-ap-southeast-2.amazonaws.com/account_70360000000000001/attachments/991/uoa-401X437.png?AWSAccessKeyId=AKIAIZAVS3WMRR54DT4Q&amp;Expires=1937606186&amp;Signature=BSMCs%2FAhokjp9NOw3b%2Br7gZxr8Y%3D&amp;response-cache-control=Cache-Control%3Amax-age%3D473364000.0%2C%20public&amp;response-expires=473364000.0" />
   <link rel="apple-touch-icon" href="https://instructure-uploads-apse2.s3.ap-southeast-2.amazonaws.com/account_70360000000000001/attachments/5022279/180x180.png" />
-  <link rel="stylesheet" media="all" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/39e867266f5a089cd1d7af0dded5c9b1/variables-8391c84da435c9cfceea2b2b3317ff66.css" />
-  <link rel="stylesheet" media="all" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/new_styles_normal_contrast/bundles/common-494d9d8c74.css" />
+  <%# <link rel="stylesheet" media="all" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/39e867266f5a089cd1d7af0dded5c9b1/variables-8391c84da435c9cfceea2b2b3317ff66.css" />
+  <link rel="stylesheet" media="all" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/new_styles_normal_contrast/bundles/common-494d9d8c74.css" /> %>
   <meta name="apple-itunes-app" content="app-id=480883488" />
 <link rel="manifest" href="/web-app-manifest/manifest.json" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#102535">
-  <link rel="stylesheet" media="all" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/no_variables/bundles/wiki_page-46e7e026f6.css" />
-  <link rel="stylesheet" media="all" href="https://instructure-uploads-apse2.s3.ap-southeast-2.amazonaws.com/account_70360000000000001/attachments/4323536/UofA_canvas.css" />
+  <%# <link rel="stylesheet" media="all" href="https://du11hjcvx0uqb.cloudfront.net/br/dist/brandable_css/no_variables/bundles/wiki_page-46e7e026f6.css" />
+  <link rel="stylesheet" media="all" href="https://instructure-uploads-apse2.s3.ap-southeast-2.amazonaws.com/account_70360000000000001/attachments/4323536/UofA_canvas.css" /> %>
   <script>
     function _earlyClick(e){
       var c = e.target
@@ -87,12 +87,22 @@
 
 <div id="wiki_page_show"></div>
 
-  <% @users.each_slice(4) do |users_slices| %>
-  <div class="users">
+  <h3><%= "Wikis:" %></h3>
+  <% @users.each_slice(3) do |users_slices| %>
+  <ul class="users">
     <% users_slices.each do |user| %>
       <%= render user %>
     <% end %>
-  </div>
+  </ul>
+  <% end %>
+
+  <h3><%= "Quizzes:" %></h3>
+  <% @users.each_slice(3) do |users_slices| %>
+  <ul class="users">
+    <% users_slices.each do |user| %>
+      <%= render user %>
+    <% end %>
+  </ul>
   <% end %>
 
           </div>

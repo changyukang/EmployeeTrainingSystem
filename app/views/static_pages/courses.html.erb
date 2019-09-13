@@ -86,7 +86,8 @@
 <div id="flash_screenreader_holder"></div>
 
 <div id="wiki_page_show"></div>
-
+<%# TODO: display corresponding courses stored in the user_table, 
+and select the wikis and quizzes from the wiki_table according to the courses which the wikis belong to%>
   <h3><%= "Wikis:" %></h3>
   <% @users.each_slice(3) do |users_slices| %>
   <ul class="users">

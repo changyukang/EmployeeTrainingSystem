@@ -90,7 +90,7 @@ class UsersController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :jobTitle, :manager)
     end
 
     def logged_in_user
@@ -105,10 +105,15 @@ class UsersController < ApplicationController
       redirect_to(root_url) unless current_user.admin?
     end
 
+    # Confirms a manager user.
+    def manager_user
+      redirect_to(root_url) unless current_user.manager?
+    end
+
     # Confirms the correct user.
     def correct_user
       @user = User.find(params[:id])
-      unless current_user?(@user)
+      unless current_user?(@user) || current_user.manager?
         flash[:danger] = "You do not have access"
         redirect_to(root_url) 
       end

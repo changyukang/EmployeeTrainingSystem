@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   	get    '/login',   to: 'sessions#new'
   	post   '/login',   to: 'sessions#create'
 	delete '/logout',  to: 'sessions#destroy'
+	get  '/wiki',   to: 'static_pages#wiki'
+	get  '/quiz',    to: 'static_pages#quiz'
   	resources :users
 	
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

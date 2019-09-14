@@ -11,7 +11,6 @@ class StaticPagesController < ApplicationController
   def contact
   end
 
-
   
   def courses
     # user = User.find_by(email: params[:session][:email].downcase)

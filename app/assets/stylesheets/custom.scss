@@ -45,6 +45,17 @@ textarea {
 
 /* Users index */
 
+dt {
+  float: left;
+  clear: left;
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 0px;
+}
+
 .users {
   list-style: none;
   margin: 0;

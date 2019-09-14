@@ -13,6 +13,7 @@ gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5'
 
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+gem 'bootstrap-toggle-rails'
 
 gem 'uglifier', '~> 3.0'
 gem 'coffee-rails', '~> 5.0'

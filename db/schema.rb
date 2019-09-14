@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_14_030422) do
+ActiveRecord::Schema.define(version: 2019_09_14_052201) do
 
   create_table "comfy_cms_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "site_id", null: false
@@ -142,6 +142,7 @@ ActiveRecord::Schema.define(version: 2019_09_14_030422) do
     t.integer "authority_level", default: 0
     t.boolean "manager", default: false
     t.string "jobTitle"
+    t.integer "currentCourse"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

@@ -13,18 +13,17 @@ class StaticPagesController < ApplicationController
 
   
   def courses
-    # user = User.find_by(email: params[:session][:email].downcase)
-    #   if user && user.authenticate(params[:session][:password])
-    #     log_in user
-    #     redirect_to user
-    #   else
-    #     # Create an error message.
-    #     flash.now[:danger] = 'Invalid email/password combination'
-    #     render 'new'
-    #   end
-    # @user = User.find(params[:id]
     @users = User.all
-    # @users = current_user
+    @user = User.find(session[:user_id])
+    # @user = current_user
+    @currentCourse = @user.currentCourse
+    @course = Course.find(4)
+    # @course = Course.find(@user.currentCourse)
+    @courseName = @course.name
+    @courseIntroduction = @course.introduction
+    # @wikis = Wiki.find(params[currentCourse])
+    # @quizzes = Wiki.find(params[currentCourse])
   end
+
 
 end

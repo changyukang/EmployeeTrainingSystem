@@ -15,7 +15,7 @@ User.create!(name:  "Daniel",
              email: "daniel@gmail.com",
              password:              "123456",
              password_confirmation: "123456",
-             authority_level: 1)
+             manager: true)
 
 User.create!(name:  "Jolie",
              email: "jolie@gmail.com",

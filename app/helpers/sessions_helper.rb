@@ -21,10 +21,6 @@ module SessionsHelper
     user == current_user
   end
 
-  def user_auth?(level)
-      @current_user[:authority_level]>=level
-  end
-
   # Logs out the current user.
   def log_out
     session.delete(:user_id)

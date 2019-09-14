@@ -15,9 +15,11 @@ User.create!(name:  "Daniel",
              email: "daniel@gmail.com",
              password:              "123456",
              password_confirmation: "123456",
+             jobTitle: "Engineering Manager",
              manager: true)
 
 User.create!(name:  "Jolie",
              email: "jolie@gmail.com",
+             jobTitle: "Mechcanical Engineer",
              password:              "123456",
              password_confirmation: "123456")

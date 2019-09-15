@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
       flash[:success] = "Article was successfully created."
       redirect_to @article #could have put redirect_to @user but wanted to be explicit
     else
-      render 'new'
+      render "new"
     end 
 
     #respond_to do |format|

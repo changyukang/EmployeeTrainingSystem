@@ -39,6 +39,40 @@ User.create!(name:  "Daniel",
 User.create!(name:  "Jolie",
              email: "jolie_kcy1@gmail.com",
              password:              "123456",
+             password_confirmation: "123456")
+
+User.create!(name:  "Admin2",
+             email: "admin_kcy2@gmail.com",
+             password:              "foobar",
+             password_confirmation: "foobar",
+             admin: true)
+
+User.create!(name:  "Daniel2",
+             email: "daniel_kcy2@gmail.com",
+             password:              "123456",
+             password_confirmation: "123456",
+             authority_level: 1)
+
+User.create!(name:  "Jolie2",
+             email: "jolie_kcy2@gmail.com",
+             password:              "123456",
+             password_confirmation: "123456")
+
+User.create!(name:  "Admin3",
+             email: "admin_kcy3@gmail.com",
+             password:              "foobar",
+             password_confirmation: "foobar",
+             admin: true)
+
+User.create!(name:  "Daniel3",
+             email: "daniel_kcy3@gmail.com",
+             password:              "123456",
+             password_confirmation: "123456",
+             authority_level: 1)
+
+User.create!(name:  "Jolie3",
+             email: "jolie_kcy3@gmail.com",
+             password:              "123456",
              password_confirmation: "123456",
              currentCourse: 1)
 

@@ -23,3 +23,7 @@ User.create!(name:  "Jolie",
              jobTitle: "Mechcanical Engineer",
              password:              "123456",
              password_confirmation: "123456")
+
+Article.create!(title:  "Test Article",
+             category: "Coding",
+             body: "dsfgdsfg")

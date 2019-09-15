@@ -1,27 +1,26 @@
 <% provide(:title, 'Courses') %>
-<h1><%= @course.name%></h1>
-slfjsld@test<%= @user.currentCourse%>...<%= session[:user_id]%> 
-<p>
-  <h3><%= @course.introduction%></h3>
-  
-  <h3><%= "Wikis:" %></h3>
-  <% @users.each_slice(3) do |users_slices| %>
-  <ul class="users">
-    <% users_slices.each do |user| %>
-      <%= render user %>
-    <% end %>
-  </ul>
-  <% end %>
-
-  <h3><%= "Quizzes:" %></h3>
-  <% @users.each_slice(3) do |users_slices| %>
-  <ul class="users">
-    <% users_slices.each do |user| %>
-      <%= render user %>
-    <% end %>
-  </ul>
-  <% end %>
-</p>
-
-<%# TODO: display corresponding courses stored in the user_table, 
-and select the wikis and quizzes from the wiki_table according to the courses which the wikis belong to%>
+<html>
+    <head>
+        <title>Courses</title>
+    </head>
+    <body>
+        <h1>
+            <%= @course.name%>
+        </h1>
+        <h4>
+            <%= raw @course.introduction%>
+        </h4>
+        <h3>
+            <%= "Wikis:" %>
+        </h3><% @users.each_slice(3) do |users_slices| %>
+        <ul class="users">
+            <% users_slices.each do |user| %><%= render user %><% end %>
+        </ul><% end %>
+        <h3>
+            <%= "Quizzes:" %>
+        </h3><% @users.each_slice(3) do |users_slices| %>
+        <ul class="users">
+            <% users_slices.each do |user| %><%= render user %><% end %>
+        </ul><% end %>
+    </body>
+</html>

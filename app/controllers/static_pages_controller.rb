@@ -17,8 +17,7 @@ class StaticPagesController < ApplicationController
     @user = User.find(session[:user_id])
     # @user = current_user
     @currentCourse = @user.currentCourse
-    @course = Course.find(4)
-    # @course = Course.find(@user.currentCourse)
+    @course = Course.find(@user.currentCourse)
     @courseName = @course.name
     @courseIntroduction = @course.introduction
     # @wikis = Wiki.find(params[currentCourse])

@@ -17,10 +17,15 @@
             <% users_slices.each do |user| %><%= render user %><% end %>
         </ul><% end %>
         <h3>
+        </h3>
+        <ul class="articles">
+            <% @articles.each do |article| %><%= render article%><% end %>
+        </ul>
+        <h3>
             <%= "Quizzes:" %>
-        </h3><% @users.each_slice(3) do |users_slices| %>
-        <ul class="users">
-            <% users_slices.each do |user| %><%= render user %><% end %>
-        </ul><% end %>
+        </h3>
+        <ul class="articles">
+            <% @articles.each do |article| %><%= render article%><% end %>
+        </ul>
     </body>
 </html>

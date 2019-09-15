@@ -20,8 +20,9 @@ class StaticPagesController < ApplicationController
     @course = Course.find(@user.currentCourse)
     @courseName = @course.name
     @courseIntroduction = @course.introduction
-    # @wikis = Wiki.find(params[currentCourse])
-    # @quizzes = Wiki.find(params[currentCourse])
+    @articles= Article.find(@user.currentCourse)
+    # @wikis = Article.find(@user.currentCourse)
+    # @quizzes =Article.find(@user.currentCourse)
   end
 
 

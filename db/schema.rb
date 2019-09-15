@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2019_09_15_083947) do
     t.string "title"
     t.string "category"
     t.text "body"
+    t.integer "course_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["title"], name: "index_articles_on_title", unique: true

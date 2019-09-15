@@ -4,6 +4,7 @@ class CreateArticles < ActiveRecord::Migration[6.0]
       t.string :title
       t.string :category
       t.text :body
+      t.integer :course_id
 
       t.timestamps
     end

@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 	delete '/logout',  to: 'sessions#destroy'
 	get  '/wiki',   to: 'static_pages#wiki'
 	get  '/quiz',    to: 'static_pages#quiz'
+	get '/wikis/',    to: 'static_pages#show_wikis'
+	get '/quizzes/',    to: 'static_pages#show_quizzes'
   	resources :users
 	
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

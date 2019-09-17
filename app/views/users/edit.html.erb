@@ -1,0 +1,40 @@
+<% provide(:title, "Edit user") %>
+<h1>Edit User</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <% if current_user.manager? || current_user.admin?%>
+        <%= f.label :jobTitle, "Job Title" %>
+        <%= f.text_field :jobTitle, class: 'form-control' %>
+
+        <%= f.label "Manager Permissions"%>
+        <%= f.check_box :manager, class: 'data-toggle'%>
+        
+      <% end %>
+
+      <% if current_user.admin? || current_user?(@user) %>
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+
+        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <% end %>
+
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
+    <% end %>
+
+    <!--<div class="gravatar_edit">
+      <%= gravatar_for @user %>
+      <a href="http://gravatar.com/emails" target="_blank">change</a>
+    </div>-->
+  </div>
+</div>

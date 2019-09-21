@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-toggle
+//= require Chart.bundle
+//= require chartkick
 //= require_tree .

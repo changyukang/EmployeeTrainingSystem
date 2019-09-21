@@ -34,7 +34,9 @@
 <% end %>
 
 <ul class="users">
+<%= will_paginate @users %>  
   <% @users.each do |user| %>
-     <%= render user %>
-  <% end %>
+    <%= render user %>  
+  <% end %>  
+<%= will_paginate @users %>
 </ul>

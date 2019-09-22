@@ -1,0 +1,14 @@
+<% provide(:name, 'All groups') %>
+<h1>All groups</h1>
+
+<% if current_user.manager? %>
+  <%= link_to "Add Group", new_group_path, class: "btn btn-lg btn-primary" %>
+<% end %>
+
+<ul class="users">
+<%= will_paginate @groups %>  
+  <% @groups.each do |group| %>
+    <%= render group %>  
+  <% end %>  
+<%= will_paginate @group %>
+</ul>

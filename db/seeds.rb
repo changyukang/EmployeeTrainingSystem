@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -133,3 +134,5 @@ Article.create!(title:  "Quiz: Computer system hardware design",
              course_id:              2)
 
 
+=======
+>>>>>>> f1e141bada1a6f770d2f928b618cef695530cf0a

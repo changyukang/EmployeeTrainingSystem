@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.paginate(:page => params[:page], :per_page=>5)
   end
 
   # GET /users/1
@@ -32,8 +32,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      log_in @user
-      flash[:success] = "Welcome to the Employee Training System!"
+      #log_in @user
+      flash[:success] = "Account created"
       redirect_to user_url(@user) #could have put redirect_to @user but wanted to be explicit
     else
       render 'new'

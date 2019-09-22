@@ -29,12 +29,16 @@
 <% provide(:title, 'All users') %>
 <h1>All users</h1>
 
+<%= pie_chart User.group(:jobTitle).count, library: {legend:{position: "bottom"}} %>
+
 <% if current_user.manager? %>
   <%= link_to "Add User", new_user_path, class: "btn btn-lg btn-primary" %>
 <% end %>
 
 <ul class="users">
+<%= will_paginate @users %>  
   <% @users.each do |user| %>
-     <%= render user %>
-  <% end %>
+    <%= render user %>  
+  <% end %>  
+<%= will_paginate @users %>
 </ul>

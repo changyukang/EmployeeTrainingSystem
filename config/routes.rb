@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :quizzes
 	get '/wikis/',    to: 'courses#show_wikis'
 	get '/quizzes/',    to: 'courses#show_quizzes'
 	get  '/courses',  to: 'courses#courses'

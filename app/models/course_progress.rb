@@ -1,0 +1,2 @@
+class CourseProgress < ApplicationRecord
+end

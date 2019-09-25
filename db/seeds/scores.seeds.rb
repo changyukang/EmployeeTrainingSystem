@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Score.create!(user_id: 1,
              quiz_id: 2,
-             scoe: 66)
+             score: 66)
 Score.create!(user_id: 2,
              quiz_id: 2,
-             scoe: 33)
+             score: 33)
 Score.create!(user_id: 1,
              quiz_id: 1,
-             scoe: 100)
+             score: 100)

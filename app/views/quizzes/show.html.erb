@@ -1,4 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Quiz:</strong>
+  <%= @quiz.quiz_id %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @quiz.link %>
+</p>
+
 <%= link_to 'Edit', edit_quiz_path(@quiz) %> |
 <%= link_to 'Back', quizzes_path %>

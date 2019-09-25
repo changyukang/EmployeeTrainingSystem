@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :scores
+  resources :quizzes
 	resources :course_progresses
 	resources :quizzes
 	get '/wikis/',    to: 'courses#show_wikis'

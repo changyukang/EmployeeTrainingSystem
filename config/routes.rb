@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :scores
+  resources :quizzes
 	resources :course_progresses
 	resources :quizzes
 	get '/wikis/',    to: 'courses#show_wikis'
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
 	delete '/logout',  to: 'sessions#destroy'
 	get  '/wiki',   to: 'static_pages#wiki'
 	get  '/quiz',    to: 'static_pages#quiz'
+	get  '/quiz2',    to: 'static_pages#quiz2'
   	resources :users
 	
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

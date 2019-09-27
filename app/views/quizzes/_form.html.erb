@@ -11,6 +11,16 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label :quiz_id %>
+    <%= form.number_field :quiz_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :link %>
+    <%= form.text_area :link %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

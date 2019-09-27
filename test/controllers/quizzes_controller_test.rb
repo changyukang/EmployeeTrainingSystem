@@ -17,7 +17,7 @@ class QuizzesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create quiz" do
     assert_difference('Quiz.count') do
-      post quizzes_url, params: { quiz: {  } }
+      post quizzes_url, params: { quiz: { link: @quiz.link, quiz_id: @quiz.quiz_id } }
     end
 
     assert_redirected_to quiz_url(Quiz.last)
@@ -34,7 +34,7 @@ class QuizzesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update quiz" do
-    patch quiz_url(@quiz), params: { quiz: {  } }
+    patch quiz_url(@quiz), params: { quiz: { link: @quiz.link, quiz_id: @quiz.quiz_id } }
     assert_redirected_to quiz_url(@quiz)
   end
 

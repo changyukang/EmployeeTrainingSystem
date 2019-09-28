@@ -24,17 +24,27 @@ class UserGroupsController < ApplicationController
   # POST /user_groups
   # POST /user_groups.json
   def create
+
     @user_group = UserGroup.new(user_group_params)
 
-    respond_to do |format|
-      if @user_group.save
-        format.html { redirect_to @user_group, notice: 'User group was successfully created.' }
-        format.json { render :show, status: :created, location: @user_group }
-      else
-        format.html { render :new }
-        format.json { render json: @user_group.errors, status: :unprocessable_entity }
-      end
-    end
+    if @user_group.save
+      #log_in @user
+      flash[:success] = "User group was successfully created"
+      redirect_to @user_group #could have put redirect_to @user but wanted to be explicit
+    else
+      render 'new'
+    end  
+    #@user_group = UserGroup.new(user_group_params)
+
+    #respond_to do |format|
+    #  if @user_group.save
+    #    format.html { redirect_to @user_group, notice: 'User group was successfully created.' }
+    #    format.json { render :show, status: :created, location: @user_group }
+    #  else
+    #    format.html { render :new }
+    #    format.json { render json: @user_group.errors, status: :unprocessable_entity }
+    #  end
+    #end
   end
 
   # PATCH/PUT /user_groups/1

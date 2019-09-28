@@ -13,10 +13,11 @@
 
 <p id="notice"><%= notice %></p>
 
-<dl>
-  <dt>Name:</dt>
-  <dd><%= @group.name %></dd>
-</dl>
+<% @members.each do |member| %>
+    <ul>
+      <td><%= link_to member.name, member %></td>
+    </ul>
+<% end %>
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>

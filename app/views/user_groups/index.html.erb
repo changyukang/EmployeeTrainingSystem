@@ -1,0 +1,16 @@
+<% provide(:title, 'All Memberships') %>
+<h1>All Memberships</h1>
+
+<ul class="users">
+<%= will_paginate @user_groups %>  
+  <% @user_groups.each do |user_group| %>
+      <li>
+        <td><%= user_group.user.name %></td>
+        <td><%= user_group.group.name %></td>
+        <td><%= link_to 'Destroy', user_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </li>
+    <% end %>  
+<%= will_paginate @user_groups %>
+</ul>
+
+

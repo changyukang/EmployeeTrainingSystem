@@ -3,7 +3,10 @@
 
 <% if current_user.manager? %>
   <%= link_to "Add Group", new_group_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "Assign User to Group", new_user_group_path, class: "btn btn-lg btn-primary" %>
 <% end %>
+
+
 
 <ul class="users">
 <%= will_paginate @groups %>  

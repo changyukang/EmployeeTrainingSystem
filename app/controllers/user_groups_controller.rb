@@ -4,7 +4,7 @@ class UserGroupsController < ApplicationController
   # GET /user_groups
   # GET /user_groups.json
   def index
-    @user_groups = UserGroup.all
+    @user_groups = UserGroup.paginate(:page => params[:page], :per_page=>20)
   end
 
   # GET /user_groups/1
@@ -30,7 +30,7 @@ class UserGroupsController < ApplicationController
     if @user_group.save
       #log_in @user
       flash[:success] = "User group was successfully created"
-      redirect_to @user_group #could have put redirect_to @user but wanted to be explicit
+      redirect_to groups_url #could have put redirect_to @user but wanted to be explicit
     else
       render 'new'
     end  
@@ -65,10 +65,13 @@ class UserGroupsController < ApplicationController
   # DELETE /user_groups/1.json
   def destroy
     @user_group.destroy
-    respond_to do |format|
-      format.html { redirect_to user_groups_url, notice: 'User group was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash[:success] = "Membership deleted"
+    redirect_to user_groups_url
+    #@user_group.destroy
+    #respond_to do |format|
+    #  format.html { redirect_to user_groups_url, notice: 'User group was successfully destroyed.' }
+    #  format.json { head :no_content }
+    #end
   end
 
   private

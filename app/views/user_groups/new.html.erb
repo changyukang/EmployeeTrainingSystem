@@ -1,5 +1,18 @@
-<h1>New User Group</h1>
+<% provide(:title, 'Add Membership') %>
+<h1>New Membership</h1>
 
-<%= render 'form', user_group: @user_group %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user_group) do |f| %>
 
-<%= link_to 'Back', user_groups_path %>
+    	<%= render 'shared/error_messages', obj: @user_group %>
+
+    	<%= f.label :User %>
+      	<%= f.collection_select :user_id, User.order(:name),:id,:name, include_blank: true %>
+      	<%= f.label :Group %>
+      	<%= f.collection_select :group_id, Group.order(:name),:id,:name, include_blank: true %>
+
+      	<%= f.submit "Assign group", class: "btn btn-primary" %>
+    <% end %>
+
+<%= link_to 'Back', groups_path %>

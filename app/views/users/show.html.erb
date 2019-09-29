@@ -22,9 +22,9 @@
   <dd><%= @user.jobTitle %></dd>
 </dl>
 
-<% @memberships.each do |memberships| %>
+<% @memberships.each do |membership| %>
     <ul>
-      <li><%= link_to memberships.name, memberships %></li>
+      <li><%= link_to membership.name, membership %></li>
     </ul>
 <% end %>
 

@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get  '/quiz',    to: 'static_pages#quiz'
   get  '/quiz2',    to: 'static_pages#quiz2'
     resources :users
+    resources :groups
     resources :user_groups
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

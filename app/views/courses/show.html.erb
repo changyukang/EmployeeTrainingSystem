@@ -16,14 +16,18 @@
      
         <h4>
             <%= puts get_wiki_and_quiz(@course)%>
+
             <br><dt><%= "Wikis:" %></dt><br><br>
             <% @article_wikis.each do |article_wiki|%>
                 <%= puts set_wiki_global_id(article_wiki.id)%>
-                <dd><%=link_to article_wiki.title, :action => 'show_wikis',:controller => 'courses'%></dd>
+                <dd><%=link_to article_wiki.title, :action => 'show_article_wikis',:controller => 'courses'%></dd>
             <% end%>
 
             <br><dt><%= "Quizzes:" %></dt><br><br>
-            <dd><%=link_to @article_quizzes.title, :action => 'show_quizzes',:controller => 'courses'%></dd>
+            <% @article_quizzes.each do |article_quiz|%>
+                <%= puts set_quiz_global_id(article_quiz.id)%>
+                <dd><%=link_to article_quiz.title, :action => 'show_article_quizzes',:controller => 'courses'%></dd>
+            <% end%>
         </h4>
         <h4>
         </h4>

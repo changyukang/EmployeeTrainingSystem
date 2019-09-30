@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  resources :user_groups
+  resources :groups
   resources :scores
   resources :quizzes
 	resources :course_progresses
 	resources :quizzes
-	get '/wikis/',    to: 'courses#show_wikis'
-	get '/quizzes/',    to: 'courses#show_quizzes'
-	get  '/courses',  to: 'courses#courses'
+	get '/article_wikis/',    to: 'courses#show_article_wikis'
+	get '/article_quizzes/',    to: 'courses#show_article_quizzes'
 	resources :courses
 	resources :articles
 	get 'sessions/new'

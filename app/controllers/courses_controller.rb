@@ -22,18 +22,18 @@ class CoursesController < ApplicationController
   def edit
   end
 
-  def show_wikis
-    @user = User.find(session[:user_id])
-    @currentCourse = @user.currentCourse
-    # @articles= Article.find(@user.currentCourse)
-    @articles_wiki = Article.find_by_course_id_and_category(@user.currentCourse, "Wiki")
+  def show_article_wikis
+    # @user = User.find(session[:user_id])
+    # @currentCourse = @user.currentCourse
+    # # @articles= Article.find(@user.currentCourse)
+    # @articles_wiki = Article.find_by_course_id_and_category(@user.currentCourse, "Wiki")
   end
 
-  def show_quizzes
-    @user = User.find(session[:user_id])
-    @currentCourse = @user.currentCourse
-    # @articles= Article.find(@user.currentCourse)
-    @articles_quiz = Article.find_by_course_id_and_category(@user.currentCourse, "Quiz")
+  def show_article_quizzes
+    # @user = User.find(session[:user_id])
+    # @currentCourse = @user.currentCourse
+    # # @articles= Article.find(@user.currentCourse)
+    # @articles_quiz = Article.find_by_course_id_and_category(@user.currentCourse, "Quiz")
   end
 
   

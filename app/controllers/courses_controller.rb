@@ -5,6 +5,7 @@ class CoursesController < ApplicationController
   # GET /courses.json
   def index
     # @courses = Course.all
+    courses # select the courses belong to the current user
   end
 
   # GET /courses/1

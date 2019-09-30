@@ -1,24 +1,29 @@
 <p id="notice"><%= notice %></p>
+<html>
+    <head>
+        <title>Courses</title>
+    </head>
+    <body>
+        <h1>
+            <%= @course.name%>
+        </h1>
+        <h4>
+            <%= raw @course.introduction%>
+        </h4>
 
-<p>
-  <strong>Name:</strong>
-  <%= @course.name %>
-</p>
+        <strong>Course:</strong><%= @course.course_id %>
+        <strong>Group:</strong><%= @course.group_id %>
+     
+        <h4>
+            <br><dt><%= "Wikis:" %></dt><br><br>
 
-<p>
-  <strong>Introduction:</strong>
-  <%= @course.introduction %>
-</p>
+            <br><dt><%= "Quizzes:" %></dt><br><br>
+        </h4>
+        <h4>
+        </h4>
+    </body>
+</html>
 
-<p>
-  <strong>Course:</strong>
-  <%= @course.course_id %>
-</p>
-
-<p>
-  <strong>Group:</strong>
-  <%= @course.group_id %>
-</p>
-
+<%# TODO: only visible to admin users %>
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>

@@ -4,7 +4,7 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all
+    # @courses = Course.all
   end
 
   # GET /courses/1
@@ -34,6 +34,11 @@ class CoursesController < ApplicationController
     # @articles= Article.find(@user.currentCourse)
     @articles_quiz = Article.find_by_course_id_and_category(@user.currentCourse, "Quiz")
   end
+
+  def show_courses
+
+
+  end
   
   def courses
     @users = User.all
@@ -43,7 +48,7 @@ class CoursesController < ApplicationController
     @array_courses = Array.new
     @user_groups = UserGroup.find_by_sql ["select * from user_groups where user_id = ?", session[:user_id]]
     @user_groups.each do |user_group|
-      @courses = Course.find_by_sql ["select distinct name,introduction,course_id,group_id from courses where group_id = ?", user_group.group_id]
+      @courses = Course.find_by_sql ["select distinct name,id,introduction,course_id,group_id from courses where group_id = ?", user_group.group_id]
       @courses.each do |course|
         @array_courses.push(course)
       end

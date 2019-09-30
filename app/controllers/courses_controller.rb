@@ -40,29 +40,13 @@ class CoursesController < ApplicationController
   
   def courses
     @users = User.all
-    # @user = User.find(session[:user_id])
-    # TODO: replaced by group_id
-    # @groups = UserGroup.find_by_user_id(session[:user_id])
     @array_courses = Array.new
     @user_groups = UserGroup.find_by_sql ["select * from user_groups where user_id = ?", session[:user_id]]
     @user_groups.each do |user_group|
+      # TODO: use array to store the result
       @courses = Course.find_by_sql ["select distinct name,id,introduction,course_id,group_id from courses where group_id = ?", user_group.group_id]
-      # @courses.each do |course|
-      #   @array_courses.push(course)
-      # end
-      # @array_courses.uniq
-      # @courses.each do |course|
-      #   @articles_wiki = Article.find_by_course_id_and_category(course_id, "Wiki")
-      #   @articles_quiz = Article.find_by_course_id_and_category(course_id, "Quiz")
-        # @array_courses.push(course)
-      # end
+      # @courses_count = @courses.count
     end
-    # @currentCourse = @user.currentCourse
-    # @courses = Course.find_by_group_id(@user.currentCourse)
-    # @courseName = @course.name
-    # @courseIntroduction = @course.introduction
-    # @articles_wiki = Article.find_by_course_id_and_category(@user.currentCourse, "Wiki")
-    # @articles_quiz = Article.find_by_course_id_and_category(@user.currentCourse, "Quiz")
   end
 
   # POST /courses

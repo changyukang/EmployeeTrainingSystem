@@ -9,14 +9,16 @@ User.create!(name:  "Admin",
              email: "admin@gmail.com",
              password:              "foobar",
              password_confirmation: "foobar",
-             admin: true)
+             admin: true,
+             currentCourse: 2)
 
 User.create!(name:  "Daniel Baines",
              email: "daniel@gmail.com",
              password:              "123456",
              password_confirmation: "123456",
              jobTitle: "Team Manager",
-             manager: true)
+             manager: true,
+             currentCourse: 2)
 
 User.create!(name:  "Haoyu Luo",
              email: "haoyu@gmail.com",

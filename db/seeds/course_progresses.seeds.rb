@@ -9,14 +9,14 @@ CourseProgress.create!(user_id:  1,
              course_id:              1,
              progress: 0.23)
 
-CourseProgress.create!(user_id:  2,
+CourseProgress.create!(user_id:  4,
              course_id:              2,
-             progress: 0.50)
+             progress: 9.50)
 
 CourseProgress.create!(user_id:  1,
              course_id:              2,
              progress: 0.83)
 
-CourseProgress.create!(user_id:  2,
+CourseProgress.create!(user_id:  4,
              course_id:              1,
-             progress: 0.11)
+             progress: 5.00)

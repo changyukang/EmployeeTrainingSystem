@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :user_groups
-  resources :groups
   resources :scores
   resources :quizzes
 	resources :course_progresses

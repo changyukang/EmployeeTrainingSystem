@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_25_091556) do
+ActiveRecord::Schema.define(version: 2019_09_29_013606) do
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "title"
@@ -39,6 +39,12 @@ ActiveRecord::Schema.define(version: 2019_09_25_091556) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "quizzes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "quiz_id"
     t.text "link"
@@ -47,11 +53,21 @@ ActiveRecord::Schema.define(version: 2019_09_25_091556) do
   end
 
   create_table "scores", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "user_id"
+    t.integer "user_id"
     t.integer "quiz_id"
     t.integer "score"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "group_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_user_groups_on_group_id"
+    t.index ["user_id", "group_id"], name: "index_user_groups_on_user_id_and_group_id", unique: true
+    t.index ["user_id"], name: "index_user_groups_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -67,4 +83,6 @@ ActiveRecord::Schema.define(version: 2019_09_25_091556) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "user_groups", "groups"
+  add_foreign_key "user_groups", "users"
 end

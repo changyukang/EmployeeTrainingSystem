@@ -51,11 +51,11 @@ class CoursesController < ApplicationController
       #   @array_courses.push(course)
       # end
       # @array_courses.uniq
-      @courses.each do |course|
-        @articles_wiki = Article.find_by_course_id_and_category(course_id, "Wiki")
-        @articles_quiz = Article.find_by_course_id_and_category(course_id, "Quiz")
+      # @courses.each do |course|
+      #   @articles_wiki = Article.find_by_course_id_and_category(course_id, "Wiki")
+      #   @articles_quiz = Article.find_by_course_id_and_category(course_id, "Quiz")
         # @array_courses.push(course)
-      end
+      # end
     end
     # @currentCourse = @user.currentCourse
     # @courses = Course.find_by_group_id(@user.currentCourse)

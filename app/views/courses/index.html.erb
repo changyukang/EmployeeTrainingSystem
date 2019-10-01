@@ -17,12 +17,16 @@
 <%= puts get_course_progress()%>
 <%= bar_chart @td_array_progress, library: { barSliceText: 'value', height: '8000px' } %>
 
-<% @courses.each do |course| %>
-  <h4>
-    <strong><%= render course%></strong>
-    <p align="right"><td><%= link_to 'Show', course %></td>  <td><%= link_to 'Edit', edit_course_path(course) %></td>  <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td></p>
-  </h4>
-<% end %> 
+<ul class="courses">
+  <%= will_paginate @courses%>  
+    <% @courses.each do |course| %>
+      <h4>
+        <strong><%= render course%></strong>
+        <p align="right"><td><%= link_to 'Show', course %></td>  <td><%= link_to 'Edit', edit_course_path(course) %></td>  <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td></p>
+      </h4>
+    <% end %> 
+  <%= will_paginate @courses%>
+</ul>
 
 <br>
 

@@ -44,7 +44,9 @@ class CoursesController < ApplicationController
     @user_groups = UserGroup.find_by_sql ["select * from user_groups where user_id = ?", session[:user_id]]
     @user_groups.each do |user_group|
       # TODO: use array to store the result
-      @courses = Course.find_by_sql ["select distinct name,id,introduction,course_id,group_id from courses where group_id = ?", user_group.group_id]
+      # @courses = Course.find_by_sql ["select distinct name,id,introduction,course_id,group_id from courses where group_id = ?", user_group.group_id]
+      @courses = Course.paginate_by_sql("select distinct name,id,introduction,course_id,group_id from courses where group_id = '#{user_group.group_id}'", :page => params[:page], :per_page=>5)
+      # @ktest= Course.paginate(:page => params[:page], :per_page=>5)
       # @courses_count = @courses.count
     end
   end

@@ -15,12 +15,15 @@ correctAns[1]= 'b';
 correctAns[2]= 'd';
 
 </SCRIPT>
-<%=@score=Score.new({user_id: 101, article_id: 1, score: 100})%>
-<%=@score.save%>
+ 
 </HEAD>
 
+<%=@score=Score.new({user_id:111, article_id:1, score:99})%>
+  	<%=@score.save%>
+
 <body>
-      
+     
+
 	  <font><strong>
       </strong></font>
     <p id=\"note\" style=\"text-align:center\">
@@ -319,24 +322,29 @@ $(function(){
 <script type=\"text/javascript\">
   function score(){
     var j = 0;
-    var score;
+    var s;
     for (var i = 0; i < userAns.length; i++) {
     
       if(userAns[i] == correctAns[i]){
         j = j + 1;
       }
     }
-    score = j/userAns.length;
-    score = score * 100;
-    score = parseInt(score);
+    s = j/userAns.length;
+    s = s * 100;
+    s = parseInt(s);
     if (j == userAns.length) {
         window.alert(\"you passed the quiz~\");
       }else{
-        window.alert(\"you failed, you score is \" + score);
+        window.alert(\"you failed, you score is \" + s);
       }
+
+      <%=@score=Score.new({user_id: 111, article_id: 1, score: 11})%>
+  <%=@score.save%>
   }
   
 </script>
+
+<%=puts get_users() %>
 
 
 

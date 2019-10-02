@@ -1,2 +1,2 @@
-json.extract! score, :id, :user_id, :quiz_id, :score, :created_at, :updated_at
+json.extract! score, :id, :user_id, :article_id, :score, :created_at, :updated_at
 json.url score_url(score, format: :json)

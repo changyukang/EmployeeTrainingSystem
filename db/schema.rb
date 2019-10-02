@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_29_013606) do
+ActiveRecord::Schema.define(version: 2019_10_02_040345) do
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "title"
@@ -46,15 +46,17 @@ ActiveRecord::Schema.define(version: 2019_09_29_013606) do
   end
 
   create_table "quizzes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.integer "quiz_id"
-    t.text "link"
+    t.text "title"
+    t.text "body"
+    t.integer "article_id"
+    t.integer "course_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "scores", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "quiz_id"
+    t.integer "article_id"
     t.integer "score"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

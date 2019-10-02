@@ -1,13 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Quiz:</strong>
-  <%= @quiz.quiz_id %>
+  <strong>Title:</strong>
+  <%= @quiz.title %>
 </p>
 
 <p>
-  <strong>Link:</strong>
-  <%= @quiz.link %>
+  <strong>Body:</strong>
+  <%= @quiz.body %>
+</p>
+
+<p>
+  <strong>Article:</strong>
+  <%= @quiz.article_id %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @quiz.course_id %>
 </p>
 
 <%= link_to 'Edit', edit_quiz_path(@quiz) %> |

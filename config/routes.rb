@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  get 'search', to: 'search#search'
   resources :scores
+  get 'search', to: 'search#search'
   resources :quizzes
   resources :course_progresses
-  resources :quizzes
   get '/wikis/',    to: 'courses#show_wikis'
   get '/quizzes/',    to: 'courses#show_quizzes'
   get '/article_wikis/',    to: 'courses#show_article_wikis'

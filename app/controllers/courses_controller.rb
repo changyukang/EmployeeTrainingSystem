@@ -39,6 +39,7 @@ class CoursesController < ApplicationController
   
   
   def courses
+    @user = User.find(session[:user_id])
     @users = User.all
     @array_courses = Array.new
     @user_groups = UserGroup.find_by_sql ["select * from user_groups where user_id = ?", session[:user_id]]

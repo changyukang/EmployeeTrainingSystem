@@ -1,4 +1,9 @@
 <li>
   <%# for render %>
-  <%= link_to course.name, course %>
+  	<%= link_to course.name, course %>
+  	<div class="progress">
+  		<div class="progress-bar" style="width: <%=CourseProgress.where(:user_id => @user.id, :course_id => course.id).pluck(:progress).first%>%;" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+    		<span class="sr-only"><%=CourseProgress.where(:user_id => @user.id, :course_id => course.id).pluck(:progress).first%>%</span>
+  		</div>
+	</div>
 </li>

@@ -18,9 +18,7 @@ Rails.application.routes.draw do
     get    '/login',   to: 'sessions#new'
     post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-  get  '/wiki',   to: 'static_pages#wiki'
-  get  '/quiz',    to: 'static_pages#quiz'
-  get  '/quiz2',    to: 'static_pages#quiz2'
+  
     resources :users
     resources :groups
     resources :user_groups

@@ -1,8 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_user, only: [:index, :show,:new, :edit, :create, :update, :destroy]
-  before_action :correct_user, only: [:new, :edit, :create, :update, :destroy]
-  before_action :admin_user,     only: [:new, :edit, :create, :update, :destroy]
+  before_action :logged_in_user, only: [:index, :show]
+  before_action :adimin_and_manager_user, only: [:new, :edit, :create, :upate, :destroy]
 
   # GET /articles
   # GET /articles.json
@@ -107,20 +106,9 @@ class ArticlesController < ApplicationController
       end
     end
 
-    # Confirms an admin user.
-    def admin_user
-      redirect_to(root_url) unless current_user.admin?
-    end
-
-    # Confirms a manager user.
-    def manager_user
-      redirect_to(root_url) unless current_user.manager?
-    end
-
     # Confirms the correct user.
-    def correct_user
-      @user = User.find(params[:id])
-      unless current_user?(@user) || current_user.manager?
+    def adimin_and_manager_user
+      unless current_user.manager? || current_user.admin?
         flash[:danger] = "You do not have access"
         redirect_to(root_url) 
       end

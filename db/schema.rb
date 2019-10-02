@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2019_09_30_050359) do
   end
 
   create_table "scores", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "user_id"
+    t.integer "user_id"
     t.integer "quiz_id"
     t.integer "score"
     t.datetime "created_at", precision: 6, null: false
@@ -64,6 +64,9 @@ ActiveRecord::Schema.define(version: 2019_09_30_050359) do
     t.boolean "manager", default: false
     t.string "jobTitle"
     t.integer "currentCourse"
+    t.integer "phone"
+    t.string "address"
+    t.string "DoB"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

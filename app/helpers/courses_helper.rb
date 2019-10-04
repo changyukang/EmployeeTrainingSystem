@@ -1,4 +1,9 @@
 module CoursesHelper
+
+    def get_progress(userID, courseID)
+        return CourseProgress.where(:user_id => userID, :course_id => courseID).pluck(:progress).first
+    end
+
     def get_wiki_and_quiz (courses)
             @article_wikis = Article.find_by_sql ["select * from articles where course_id = ? and category = ?", @course.course_id, "Wiki"]
             @article_quizzes = Article.find_by_sql ["select * from articles where course_id = ? and category = ?", @course.course_id, "Quiz"]

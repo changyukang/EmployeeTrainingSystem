@@ -17,7 +17,7 @@
     <% @quizzes.each do |quiz| %>
       <tr>
         <td><%= quiz.title %></td>
-        <td><%= quiz.body %></td>
+        <td><%= link_to "take quiz", quiz.body %></td>
         <td><%= quiz.article_id %></td>
         <td><%= quiz.course_id %></td>
         <td><%= link_to 'Show', quiz %></td>

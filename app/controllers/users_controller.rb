@@ -13,6 +13,8 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @memberships = @user.groups
+    @groups=Group.all
   end
 
   # GET /users/new

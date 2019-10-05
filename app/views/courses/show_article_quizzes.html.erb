@@ -1,0 +1,12 @@
+<% provide(:title, 'Courses') %>
+<html>
+    <head>
+        <title>Quiz</title>
+    </head>
+    <body>
+        <%= puts get_quiz_by_id($article_quiz_id)%>
+        <% @article_quiz_by_id.each do|article_quiz_single|%>
+            <%= raw article_quiz_single.body%>
+        <% end%>
+    </body>
+</html>

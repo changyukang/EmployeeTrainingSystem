@@ -336,6 +336,10 @@ $(function(){
   
 </script>
 
+<%=puts get_users()%>
+<%= @score=Score.new({user_id: @users.id, article_id: 2, score: 100}) %>   
+<%=@score.save%>
+
 
 
 <input type="button" name="checkans" value=" Submit quiz " onclick="score()">

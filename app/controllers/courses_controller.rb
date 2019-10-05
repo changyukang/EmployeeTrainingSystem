@@ -4,7 +4,8 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all
+    # @courses = Course.all
+    courses # select the courses belong to the current user
   end
 
   # GET /courses/1
@@ -21,29 +22,33 @@ class CoursesController < ApplicationController
   def edit
   end
 
-  def show_wikis
-    @user = User.find(session[:user_id])
-    @currentCourse = @user.currentCourse
-    # @articles= Article.find(@user.currentCourse)
-    @articles_wiki = Article.find_by_course_id_and_category(@user.currentCourse, "Wiki")
+  def show_article_wikis
+    # @user = User.find(session[:user_id])
+    # @currentCourse = @user.currentCourse
+    # # @articles= Article.find(@user.currentCourse)
+    # @articles_wiki = Article.find_by_course_id_and_category(@user.currentCourse, "Wiki")
   end
 
-  def show_quizzes
-    @user = User.find(session[:user_id])
-    @currentCourse = @user.currentCourse
-    # @articles= Article.find(@user.currentCourse)
-    @articles_quiz = Article.find_by_course_id_and_category(@user.currentCourse, "Quiz")
+  def show_article_quizzes
+    # @user = User.find(session[:user_id])
+    # @currentCourse = @user.currentCourse
+    # # @articles= Article.find(@user.currentCourse)
+    # @articles_quiz = Article.find_by_course_id_and_category(@user.currentCourse, "Quiz")
   end
+
+  
   
   def courses
     @users = User.all
-    @user = User.find(session[:user_id])
-    @currentCourse = @user.currentCourse
-    @course = Course.find(@user.currentCourse)
-    @courseName = @course.name
-    @courseIntroduction = @course.introduction
-    @articles_wiki = Article.find_by_course_id_and_category(@user.currentCourse, "Wiki")
-    @articles_quiz = Article.find_by_course_id_and_category(@user.currentCourse, "Quiz")
+    @array_courses = Array.new
+    @user_groups = UserGroup.find_by_sql ["select * from user_groups where user_id = ?", session[:user_id]]
+    @user_groups.each do |user_group|
+      # TODO: use array to store the result
+      # @courses = Course.find_by_sql ["select distinct name,id,introduction,course_id,group_id from courses where group_id = ?", user_group.group_id]
+      @courses = Course.paginate_by_sql("select distinct name,id,introduction,course_id,group_id from courses where group_id = '#{user_group.group_id}'", :page => params[:page], :per_page=>5)
+      # @ktest= Course.paginate(:page => params[:page], :per_page=>5)
+      # @courses_count = @courses.count
+    end
   end
 
   # POST /courses

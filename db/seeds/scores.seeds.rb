@@ -6,17 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Score.create!(user_id: 101,
-             quiz_id: 2,
+             article_id: 2,
              score: 66)
 Score.create!(user_id: 102,
-             quiz_id: 2,
+             article_id: 2,
              score: 33)
 Score.create!(user_id: 101,
-             quiz_id: 1,
+             article_id: 1,
              score: 100)
 Score.create!(user_id: 101,
-             quiz_id: 2,
+             article_id: 2,
              score: 100)
 Score.create!(user_id: 104,
-             quiz_id: 1,
+             article_id: 1,
              score: 33)

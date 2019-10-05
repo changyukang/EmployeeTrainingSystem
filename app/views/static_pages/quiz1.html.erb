@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+
+
+<SCRIPT LANGUAGE="JavaScript">
+ 
+var userAns = new Array(3);
+userAns[0] = "";
+userAns[1] = "";
+userAns[2] = "";
+
+correctAns = new Array(3);
+correctAns[0]= 'a';
+correctAns[1]= 'b';
+correctAns[2]= 'd';
+
+var sco;
+
+</SCRIPT>
+
+</HEAD>
+
+
+<body>
+     
+
+    <font><strong>
+      </strong></font>
+    <p id="note" style="text-align:center">
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script>
+$(function(){
+  
+  var note = $('#note'),
+    ts = new Date(2012, 0, 1),
+    newYear = true;
+  
+  if((new Date()) > ts){
+    // The new year is here! Count towards something else.
+    // Notice the *1000 at the end - time must be in milliseconds
+    ts = (new Date()).getTime() + 1*15*1000;
+  }
+    
+  $('#countdown').countdown({
+    timestamp : ts,
+    callback  : function(minutes, seconds){
+      
+      var message = "Your answers will be submitted in ";
+      
+      message += minutes + " minute" + ( minutes==1 ? '':'s' ) + " and ";
+      message += seconds + " second" + ( seconds==1 ? '':'s' ) + "!";
+      
+      note.html(message);
+    }
+  });
+  
+});
+
+    </script> 
+    <script>
+    
+(function($){
+  
+  // Number of seconds in every time division
+  var minutes = 60;
+    
+  
+  // Creating the plugin
+  $.fn.countdown = function(prop){
+    
+    var options = $.extend({
+      callback  : function(){},
+      timestamp : 0
+    },prop);
+    
+    var left, d, h, m, s, positions;
+
+    // Initialize the plugin
+    init(this, options);
+    
+    positions = this.find('.position');
+    
+    (function tick(){
+      
+      // Time left
+      left = Math.floor((options.timestamp - (new Date())) / 1000);
+      
+      if(left < 0){
+        left = 0;
+        score();
+      }
+      
+      // Number of minutes left
+      m = Math.floor(left / minutes);
+      updateDuo(4, 5, m);
+      left -= m*minutes;
+      
+      // Number of seconds left
+      s = left;
+      updateDuo(6, 7, s);
+      
+      // Calling an optional user supplied callback
+      options.callback(m, s);
+      
+      // Scheduling another call of this function in 1s
+      setTimeout(tick, 1000);
+    })();
+    
+    // This function updates two digit positions at once
+    function updateDuo(minor,major,value){
+      switchDigit(positions.eq(minor),Math.floor(value/10)%10);
+      switchDigit(positions.eq(major),value%10);
+    }
+    
+    return this;
+  };
+
+  function init(elem, options){
+    elem.addClass('countdownHolder');
+  }
+
+  // Creates an animated transition between the two numbers
+  function switchDigit(position,number){
+    
+    var digit = position.find('.digit')
+    
+    if(digit.is(':animated')){
+      return false;
+    }
+    
+    if(position.data('digit') == number){
+      // We are already showing this number
+      return false;
+    }
+    
+    position.data('digit', number);
+    
+    var replacement = $('<span>',{
+      'class':'digit',
+      css:{
+        top:'-2.1em',
+        opacity:0
+      },
+      html:number
+    });
+    
+    // The .static class is added when the animation
+    // completes. This makes it run smoother.
+    
+    digit
+      .before(replacement)
+      .removeClass('static')
+      .animate({top:'2.5em',opacity:0},'fast',function(){
+        digit.remove();
+      })
+
+    replacement
+      .delay(100)
+      .animate({top:0,opacity:1},'fast',function(){
+        replacement.addClass('static');
+      });
+  }
+})(jQuery);  
+    </script>
+      
+    </p>
+
+<FORM NAME="form1">
+  <TABLE cellpadding=0 cellspacing=0 border=0 width="85%" align="center">
+    <TR>
+      <TD colspan="2">
+        <P>
+        <OL>
+    <LI>
+      <!-- InstanceBeginEditable name="q1text" -->What is 1 + 1?<!-- InstanceEndEditable -->
+      <P>
+      <TABLE border="0">
+        <TR>
+    <TD>
+      <INPUT type="radio" name="ques1" id = "q1a" value="a" onclick="setAns(1)">
+                   </TD>
+                <TD>&nbsp;<em>a.</em>&nbsp;&nbsp;</TD>
+                <TD><!-- InstanceBeginEditable name="q1a" --> 
+                  <pre><font color="#003399">2</font></pre>
+                  <!-- InstanceEndEditable --></TD>
+              </TR>
+        <TR>
+    <TD>
+      <INPUT type="radio" name="ques1" id = "q1b" value="b" onclick="setAns(2)">
+                   </TD>
+                <TD>&nbsp;<em>b.</em>&nbsp;&nbsp;</TD>
+                <TD><!-- InstanceBeginEditable name="q1b" --> 
+                  <pre><font color="#003399">3</font></pre>
+                  <!-- InstanceEndEditable --></TD>
+              </TR>
+        <TR>
+    <TD>
+      <INPUT type="radio" name="ques1" id = "q1c" value="c" onclick="setAns(3)">
+                   </TD>
+                <TD>&nbsp;<em>c.</em>&nbsp;&nbsp;</TD>
+                <TD><!-- InstanceBeginEditable name="q1c" --> 
+                  <pre><font color="#003399">4</font></pre>
+                  <!-- InstanceEndEditable --></TD>
+              </TR>
+        <TR>
+    <TD>
+      <INPUT type="radio" name="ques1" id = "q1d" value="d" onclick="setAns(4)">
+                   </TD>
+                <TD>&nbsp;<em>d.</em>&nbsp;&nbsp;</TD>
+                <TD><!-- InstanceBeginEditable name="q1d" --> 
+                  <pre><font color="#003399">5</font></pre>
+                  <!-- InstanceEndEditable --></TD>
+              </TR>
+      </TABLE>
+      <P>
+    <LI>
+      <!-- InstanceBeginEditable name="q2text" -->What is 2 * 3?<!-- InstanceEndEditable -->
+      <p>
+      <TABLE border="0">
+        <TR>
+    <TD >
+      <INPUT type="radio" name="ques2" id = "q2a" value="a" onclick="setAns(5)">
+                   </TD>
+                <TD>&nbsp;<em>a.</em>&nbsp;&nbsp;</TD>
+                <TD><!-- InstanceBeginEditable name="q2a" --> 
+                  <pre><font color="#003399">5</font></pre>
+                  <!-- InstanceEndEditable --></TD>
+              </TR>
+        <TR>
+    <TD>
+      <INPUT type="radio" name="ques2" id = "q2b" value="b" onclick="setAns(6)">
+                   </TD>
+                <TD>&nbsp;<em>b.</em>&nbsp;&nbsp;</TD>
+                <TD><!-- InstanceBeginEditable name="q2b" --> 
+                  <pre><font color="#003399">6</font></pre>
+                  <!-- InstanceEndEditable --></TD>
+              </TR>
+        <TR>
+    <TD>
+      <INPUT type="radio" name="ques2" id = "q2c" value="c" onclick="setAns(7)">
+                   </TD>
+                <TD>&nbsp;<em>c.</em>&nbsp;&nbsp;</TD>
+                <TD><!-- InstanceBeginEditable name="q2c" --> 
+                  <pre><font color="#003399">7</font></pre>
+                  <!-- InstanceEndEditable --></TD>
+              </TR>
+        <TR>
+    <TD>
+      <INPUT type="radio" name="ques2" id = "q2d" value="d" onclick="setAns(8)">
+                   </TD>
+                <TD>&nbsp;<em>d.</em>&nbsp;&nbsp;</TD>
+                <TD><!-- InstanceBeginEditable name="q2d" -->both a and c<!-- InstanceEndEditable --></TD>
+              </TR>
+      </TABLE>
+      <P>
+    <LI>
+      <!-- InstanceBeginEditable name="q3text" --> 
+            <p>what language do you use most often?</p>
+            <!-- InstanceEndEditable -->
+      <p>
+      <TABLE border="0">
+        <TR>
+    <TD >
+      <INPUT type="radio" name="ques3" id="q3a" value="a" onclick="setAns(9)">
+                   </TD>
+                <TD>&nbsp;<em>a.</em>&nbsp;&nbsp;</TD>
+                <TD><!-- InstanceBeginEditable name="q3a" --> 
+                  <pre><font color="#003399">Java</font></pre>
+                  <!-- InstanceEndEditable --></TD>
+              </TR>
+        <TR>
+    <TD>
+      <INPUT type="radio" name="ques3" id="q3b" value="b" onclick="setAns(10)">
+                   </TD>
+                <TD>&nbsp;<em>b.</em>&nbsp;&nbsp;</TD>
+                <TD><!-- InstanceBeginEditable name="q3b" --> 
+                  <pre><font color="#003399">c++</font></pre>
+                  <!-- InstanceEndEditable --></TD>
+              </TR>
+        <TR>
+    <TD>
+      <INPUT type="radio" name="ques3" id="q3c" value="c" onclick="setAns(11)">
+                   </TD>
+                <TD>&nbsp;<em>c.</em>&nbsp;&nbsp;</TD>
+                <TD><!-- InstanceBeginEditable name="q3c" --> 
+                  <pre><font color="#003399">Assembly language</font></pre>
+                  <!-- InstanceEndEditable --></TD>
+              </TR>
+        <TR>
+    <TD>
+      <INPUT type="radio" name="ques3" id="q3d" value="d" onclick="setAns(12)">
+                   </TD>
+                <TD>&nbsp;<em>d.</em>&nbsp;&nbsp;</TD>
+                <TD><!-- InstanceBeginEditable name="q3d" --> 
+                  <pre><font color="#003399">English</font></pre>
+                  <!-- InstanceEndEditable --></TD>
+              </TR>
+      </TABLE><P>
+  </OL>
+  <P align="center">
+    <HR>
+        <center>
+          <p id="ans1"></p>
+
+<script type="text/javascript">
+  function setAns(sel) {
+    if (sel == 1) { userAns[0] = "a";}
+    if (sel == 2) { userAns[0] = "b";}
+    if (sel == 3) { userAns[0] = "c";}
+    if (sel == 4) { userAns[0] = "d";}
+    if (sel == 5) { userAns[1] = "a";}
+    if (sel == 6) { userAns[1] = "b";}
+    if (sel == 7) { userAns[1] = "c";}
+    if (sel == 8) { userAns[1] = "d";}
+    if (sel == 9) { userAns[2] = "a";}
+    if (sel == 10) { userAns[2] = "b";}
+    if (sel == 11) { userAns[2] = "c";}
+    if (sel == 12) { userAns[2] = "d";}
+  }
+</script>
+
+<script type="text/javascript">
+
+  function score(){
+    var j = 0;
+    var s;
+    for (var i = 0; i < userAns.length; i++) {
+    
+      if(userAns[i] == correctAns[i]){
+        j = j + 1;
+      }
+    }
+    s = j/userAns.length;
+    s = s * 100;
+    s = parseInt(s);
+    sco = s;
+
+    if (j == userAns.length) {
+        window.alert("you passed the quiz~");
+      }else{
+        window.alert("you failed, you score is " + sco);
+      }
+ 
+
+  }
+ 
+</script>
+
+
+
+<input type="button" name="checkans" value=" Submit quiz "  onclick="score()" >
+<input type="reset" value=" Clear Answers " onclick="window.location.reload()">
+
+<script type="text/javascript">
+ $.ajax({
+    url: "../../controllers/quizzes_controller",
+    type: "post",
+    data: {data_value: sco},
+    success: function(data){
+      if (data) {
+        
+         
+      }
+    }
+
+  });
+
+</script>
+<%=puts get_users()%>
+<%= @score=Score.new({user_id: @users.id, article_id: 1, score: 100}) %>   
+<%=@score.save%>
+
+
+        </center>
+        <hr>
+      </TD>
+    </TR>
+  </TABLE>
+
+</form></body>
+</html>

@@ -14,7 +14,7 @@ class ScoresTest < ApplicationSystemTestCase
     visit scores_url
     click_on "New Score"
 
-    fill_in "Quiz", with: @score.quiz_id
+    fill_in "Article", with: @score.article_id
     fill_in "Score", with: @score.score
     fill_in "User", with: @score.user_id
     click_on "Create Score"
@@ -27,7 +27,7 @@ class ScoresTest < ApplicationSystemTestCase
     visit scores_url
     click_on "Edit", match: :first
 
-    fill_in "Quiz", with: @score.quiz_id
+    fill_in "Article", with: @score.article_id
     fill_in "Score", with: @score.score
     fill_in "User", with: @score.user_id
     click_on "Update Score"

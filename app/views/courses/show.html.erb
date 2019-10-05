@@ -1,24 +1,39 @@
 <p id="notice"><%= notice %></p>
+<html>
+    <head>
+        <title>Courses</title>
+    </head>
+    <body>
+        <h1>
+            <%= @course.name%>
+        </h1>
+        <h4>
+            <%= raw @course.introduction%>
+        </h4>
 
-<p>
-  <strong>Name:</strong>
-  <%= @course.name %>
-</p>
+        <strong>Course:</strong><%= @course.course_id %>
+        <strong>Group:</strong><%= @course.group_id %>
+     
+        <h4>
+            <%= puts get_wiki_and_quiz(@course)%>
 
-<p>
-  <strong>Introduction:</strong>
-  <%= @course.introduction %>
-</p>
+            <br><dt><%= "Wikis:" %></dt><br><br>
+            <% @article_wikis.each do |article_wiki|%>
+                <%= puts set_wiki_global_id(article_wiki.id)%>
+                <dd><%=link_to article_wiki.title, :action => 'show_article_wikis',:controller => 'courses'%></dd>
+            <% end%>
 
-<p>
-  <strong>Course:</strong>
-  <%= @course.course_id %>
-</p>
+            <br><dt><%= "Quizzes:" %></dt><br><br>
+            <% @article_quizzes.each do |article_quiz|%>
+                <%= puts set_quiz_global_id(article_quiz.id)%>
+                <dd><%=link_to article_quiz.title, :action => 'show_article_quizzes',:controller => 'courses'%></dd>
+            <% end%>
+        </h4>
+        <h4>
+        </h4>
+    </body>
+</html>
 
-<p>
-  <strong>Group:</strong>
-  <%= @course.group_id %>
-</p>
-
+<%# TODO: only visible to admin users %>
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>

@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+<html>
+    <head>
+        <title>Wiki</title>
+    </head>
+    <body>
+        <%= puts get_wiki_by_id($article_wiki_id)%>
+        <% @article_wiki_by_id.each do|article_wiki_single|%>
+            <%= raw article_wiki_single.body%>
+        <% end%>
+    </body>
+</html>

@@ -9,14 +9,16 @@ User.create!(name:  "Admin",
              email: "admin@gmail.com",
              password:              "foobar",
              password_confirmation: "foobar",
-             admin: true)
+             admin: true,
+             currentCourse: 2)
 
 User.create!(name:  "Daniel Baines",
              email: "daniel@gmail.com",
              password:              "123456",
              password_confirmation: "123456",
              jobTitle: "Team Manager",
-             manager: true)
+             manager: true,
+             currentCourse: 2)
 
 User.create!(name:  "Haoyu Luo",
              email: "haoyu@gmail.com",
@@ -70,3 +72,19 @@ User.create!(name:  "Jolie",
              password:              "123456",
              password_confirmation: "123456")
 
+Group.create!(name: "Front End Development")
+
+Group.create!(name: "Back End Development")
+
+Group.create!(name: "Middle End Development")
+
+Group.create!(name: "Infront of Middle but before Front End Development")
+
+UserGroup.create!(user_id: 2, group_id: 1)
+
+UserGroup.create!(user_id: 2, group_id: 2)
+
+UserGroup.create!(user_id: 3, group_id: 1)
+
+UserGroup.create!(user_id: 4, group_id: 1)
+UserGroup.create!(user_id: 4, group_id: 2)

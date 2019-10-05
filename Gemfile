@@ -14,6 +14,7 @@ gem 'sass-rails', '~> 5'
 
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'bootstrap-toggle-rails'
+gem 'tabs_on_rails', '~> 3.0'
 
 gem 'uglifier', '~> 3.0'
 gem 'coffee-rails', '~> 5.0'

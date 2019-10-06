@@ -5,8 +5,16 @@
     </head>
     <body>
         <%= puts get_wiki_by_id($article_wiki_id)%>
-        <% @article_wiki_by_id.each do|article_wiki_single|%>
-            <%= raw article_wiki_single.body%>
+        <% @article_wikis.each do|article_wiki|%>
+            <%= raw article_wiki.body%>
+
+            <%= puts get_quizzes(article_wiki.id)%>
+            <br><dt><%= "Quizzes:" %></dt><br><br>
+            <% @article_quizzes.each do |article_quiz|%>
+                <%= puts set_quiz_global_id(article_quiz.id)%>
+                <dd><%#=link_to article_quiz.title, :action => 'show_article_quizzes',:controller => 'courses'%></dd>
+                <dd><%=link_to article_quiz.link, :action => 'quiz2',:controller => 'static_pages'%></dd>
+            <% end%>
         <% end%>
     </body>
 </html>

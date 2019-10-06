@@ -6,9 +6,9 @@
   <thead>
     <tr>
       <th>User</th>
-      <th>Quiz</th>
+      <th>Article</th>
       <th>Score</th>
-      <th colspan="20"></th>
+      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -16,7 +16,7 @@
     <% @scores.each do |score| %>
       <tr>
         <td><%= score.user_id %></td>
-        <td><%= score.quiz_id %></td>
+        <td><%= score.article_id %></td>
         <td><%= score.score %></td>
         <td><%= link_to 'Show', score %></td>
         <td><%= link_to 'Edit', edit_score_path(score) %></td>

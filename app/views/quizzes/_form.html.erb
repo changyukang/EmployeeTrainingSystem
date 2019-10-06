@@ -12,13 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :quiz_id %>
-    <%= form.number_field :quiz_id %>
+    <%= form.label :title %>
+    <%= form.text_area :title %>
   </div>
 
   <div class="field">
-    <%= form.label :link %>
-    <%= form.text_area :link %>
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div class="field">
+    <%= form.label :article_id %>
+    <%= form.number_field :article_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :course_id %>
+    <%= form.number_field :course_id %>
   </div>
 
   <div class="actions">

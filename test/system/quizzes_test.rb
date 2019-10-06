@@ -14,8 +14,10 @@ class QuizzesTest < ApplicationSystemTestCase
     visit quizzes_url
     click_on "New Quiz"
 
-    fill_in "Link", with: @quiz.link
-    fill_in "Quiz", with: @quiz.quiz_id
+    fill_in "Article", with: @quiz.article_id
+    fill_in "Body", with: @quiz.body
+    fill_in "Course", with: @quiz.course_id
+    fill_in "Title", with: @quiz.title
     click_on "Create Quiz"
 
     assert_text "Quiz was successfully created"
@@ -26,8 +28,10 @@ class QuizzesTest < ApplicationSystemTestCase
     visit quizzes_url
     click_on "Edit", match: :first
 
-    fill_in "Link", with: @quiz.link
-    fill_in "Quiz", with: @quiz.quiz_id
+    fill_in "Article", with: @quiz.article_id
+    fill_in "Body", with: @quiz.body
+    fill_in "Course", with: @quiz.course_id
+    fill_in "Title", with: @quiz.title
     click_on "Update Quiz"
 
     assert_text "Quiz was successfully updated"

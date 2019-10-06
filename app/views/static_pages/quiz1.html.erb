@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <HTML>
 <HEAD>
+
+
 <SCRIPT LANGUAGE="JavaScript">
  
 var userAns = new Array(3);
@@ -13,13 +15,17 @@ correctAns[0]= 'a';
 correctAns[1]= 'b';
 correctAns[2]= 'd';
 
+var sco;
+
 </SCRIPT>
 
 </HEAD>
 
+
 <body>
-      
-	  <font><strong>
+     
+
+    <font><strong>
       </strong></font>
     <p id="note" style="text-align:center">
     <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
@@ -33,7 +39,7 @@ $(function(){
   if((new Date()) > ts){
     // The new year is here! Count towards something else.
     // Notice the *1000 at the end - time must be in milliseconds
-    ts = (new Date()).getTime() + 1*30*1000;
+    ts = (new Date()).getTime() + 1*15*1000;
   }
     
   $('#countdown').countdown({
@@ -166,134 +172,134 @@ $(function(){
       <TD colspan="2">
         <P>
         <OL>
-	  <LI>
-	    <!-- InstanceBeginEditable name="q1text" -->What is the planet we live?<!-- InstanceEndEditable -->
-	    <P>
-	    <TABLE border="0">
-	      <TR>
-		<TD>
-		  <INPUT type="radio" name="ques1" id = "q1a" value="a" onclick="setAns(1)">
+    <LI>
+      <!-- InstanceBeginEditable name="q1text" -->What is 1 + 1?<!-- InstanceEndEditable -->
+      <P>
+      <TABLE border="0">
+        <TR>
+    <TD>
+      <INPUT type="radio" name="ques1" id = "q1a" value="a" onclick="setAns(1)">
                    </TD>
                 <TD>&nbsp;<em>a.</em>&nbsp;&nbsp;</TD>
                 <TD><!-- InstanceBeginEditable name="q1a" --> 
-                  <pre><font color="#003399">Earth</font></pre>
+                  <pre><font color="#003399">2</font></pre>
                   <!-- InstanceEndEditable --></TD>
               </TR>
-	      <TR>
-		<TD>
-		  <INPUT type="radio" name="ques1" id = "q1b" value="b" onclick="setAns(2)">
+        <TR>
+    <TD>
+      <INPUT type="radio" name="ques1" id = "q1b" value="b" onclick="setAns(2)">
                    </TD>
                 <TD>&nbsp;<em>b.</em>&nbsp;&nbsp;</TD>
                 <TD><!-- InstanceBeginEditable name="q1b" --> 
-                  <pre><font color="#003399">Mars</font></pre>
+                  <pre><font color="#003399">3</font></pre>
                   <!-- InstanceEndEditable --></TD>
               </TR>
-	      <TR>
-		<TD>
-		  <INPUT type="radio" name="ques1" id = "q1c" value="c" onclick="setAns(3)">
+        <TR>
+    <TD>
+      <INPUT type="radio" name="ques1" id = "q1c" value="c" onclick="setAns(3)">
                    </TD>
                 <TD>&nbsp;<em>c.</em>&nbsp;&nbsp;</TD>
                 <TD><!-- InstanceBeginEditable name="q1c" --> 
-                  <pre><font color="#003399">Jupiter</font></pre>
+                  <pre><font color="#003399">4</font></pre>
                   <!-- InstanceEndEditable --></TD>
               </TR>
-	      <TR>
-		<TD>
-		  <INPUT type="radio" name="ques1" id = "q1d" value="d" onclick="setAns(4)">
+        <TR>
+    <TD>
+      <INPUT type="radio" name="ques1" id = "q1d" value="d" onclick="setAns(4)">
                    </TD>
                 <TD>&nbsp;<em>d.</em>&nbsp;&nbsp;</TD>
                 <TD><!-- InstanceBeginEditable name="q1d" --> 
-                  <pre><font color="#003399">Mercury</font></pre>
+                  <pre><font color="#003399">5</font></pre>
                   <!-- InstanceEndEditable --></TD>
               </TR>
-	    </TABLE>
-	    <P>
-	  <LI>
-	    <!-- InstanceBeginEditable name="q2text" -->What do we exhale when we breath?<!-- InstanceEndEditable -->
-	    <p>
-	    <TABLE border="0">
-	      <TR>
-		<TD >
-		  <INPUT type="radio" name="ques2" id = "q2a" value="a" onclick="setAns(5)">
+      </TABLE>
+      <P>
+    <LI>
+      <!-- InstanceBeginEditable name="q2text" -->What is 2 * 3?<!-- InstanceEndEditable -->
+      <p>
+      <TABLE border="0">
+        <TR>
+    <TD >
+      <INPUT type="radio" name="ques2" id = "q2a" value="a" onclick="setAns(5)">
                    </TD>
                 <TD>&nbsp;<em>a.</em>&nbsp;&nbsp;</TD>
                 <TD><!-- InstanceBeginEditable name="q2a" --> 
-                  <pre><font color="#003399">Hydrogen</font></pre>
+                  <pre><font color="#003399">5</font></pre>
                   <!-- InstanceEndEditable --></TD>
               </TR>
-	      <TR>
-		<TD>
-		  <INPUT type="radio" name="ques2" id = "q2b" value="b" onclick="setAns(6)">
+        <TR>
+    <TD>
+      <INPUT type="radio" name="ques2" id = "q2b" value="b" onclick="setAns(6)">
                    </TD>
                 <TD>&nbsp;<em>b.</em>&nbsp;&nbsp;</TD>
                 <TD><!-- InstanceBeginEditable name="q2b" --> 
-                  <pre><font color="#003399">water and CO2</font></pre>
+                  <pre><font color="#003399">6</font></pre>
                   <!-- InstanceEndEditable --></TD>
               </TR>
-	      <TR>
-		<TD>
-		  <INPUT type="radio" name="ques2" id = "q2c" value="c" onclick="setAns(7)">
+        <TR>
+    <TD>
+      <INPUT type="radio" name="ques2" id = "q2c" value="c" onclick="setAns(7)">
                    </TD>
                 <TD>&nbsp;<em>c.</em>&nbsp;&nbsp;</TD>
                 <TD><!-- InstanceBeginEditable name="q2c" --> 
-                  <pre><font color="#003399">oxygen</font></pre>
+                  <pre><font color="#003399">7</font></pre>
                   <!-- InstanceEndEditable --></TD>
               </TR>
-	      <TR>
-		<TD>
-		  <INPUT type="radio" name="ques2" id = "q2d" value="d" onclick="setAns(8)">
+        <TR>
+    <TD>
+      <INPUT type="radio" name="ques2" id = "q2d" value="d" onclick="setAns(8)">
                    </TD>
                 <TD>&nbsp;<em>d.</em>&nbsp;&nbsp;</TD>
                 <TD><!-- InstanceBeginEditable name="q2d" -->both a and c<!-- InstanceEndEditable --></TD>
               </TR>
-	    </TABLE>
-	    <P>
-	  <LI>
-	    <!-- InstanceBeginEditable name="q3text" --> 
-            <p>what is 3 * 3?</p>
+      </TABLE>
+      <P>
+    <LI>
+      <!-- InstanceBeginEditable name="q3text" --> 
+            <p>what language do you use most often?</p>
             <!-- InstanceEndEditable -->
-	    <p>
-	    <TABLE border="0">
-	      <TR>
-		<TD >
-		  <INPUT type="radio" name="ques3" id="q3a" value="a" onclick="setAns(9)">
+      <p>
+      <TABLE border="0">
+        <TR>
+    <TD >
+      <INPUT type="radio" name="ques3" id="q3a" value="a" onclick="setAns(9)">
                    </TD>
                 <TD>&nbsp;<em>a.</em>&nbsp;&nbsp;</TD>
                 <TD><!-- InstanceBeginEditable name="q3a" --> 
-                  <pre><font color="#003399">6</font></pre>
+                  <pre><font color="#003399">Java</font></pre>
                   <!-- InstanceEndEditable --></TD>
               </TR>
-	      <TR>
-		<TD>
-		  <INPUT type="radio" name="ques3" id="q3b" value="b" onclick="setAns(10)">
+        <TR>
+    <TD>
+      <INPUT type="radio" name="ques3" id="q3b" value="b" onclick="setAns(10)">
                    </TD>
                 <TD>&nbsp;<em>b.</em>&nbsp;&nbsp;</TD>
                 <TD><!-- InstanceBeginEditable name="q3b" --> 
-                  <pre><font color="#003399">3.3</font></pre>
+                  <pre><font color="#003399">c++</font></pre>
                   <!-- InstanceEndEditable --></TD>
               </TR>
-	      <TR>
-		<TD>
-		  <INPUT type="radio" name="ques3" id="q3c" value="c" onclick="setAns(11)">
+        <TR>
+    <TD>
+      <INPUT type="radio" name="ques3" id="q3c" value="c" onclick="setAns(11)">
                    </TD>
                 <TD>&nbsp;<em>c.</em>&nbsp;&nbsp;</TD>
                 <TD><!-- InstanceBeginEditable name="q3c" --> 
-                  <pre><font color="#003399">33</font></pre>
+                  <pre><font color="#003399">Assembly language</font></pre>
                   <!-- InstanceEndEditable --></TD>
               </TR>
-	      <TR>
-		<TD>
-		  <INPUT type="radio" name="ques3" id="q3d" value="d" onclick="setAns(12)">
+        <TR>
+    <TD>
+      <INPUT type="radio" name="ques3" id="q3d" value="d" onclick="setAns(12)">
                    </TD>
                 <TD>&nbsp;<em>d.</em>&nbsp;&nbsp;</TD>
                 <TD><!-- InstanceBeginEditable name="q3d" --> 
-                  <pre><font color="#003399">9</font></pre>
+                  <pre><font color="#003399">English</font></pre>
                   <!-- InstanceEndEditable --></TD>
               </TR>
-	    </TABLE><P>
-	</OL>
-	<P align="center">
-	  <HR>
+      </TABLE><P>
+  </OL>
+  <P align="center">
+    <HR>
         <center>
           <p id="ans1"></p>
 
@@ -315,35 +321,57 @@ $(function(){
 </script>
 
 <script type="text/javascript">
+
   function score(){
     var j = 0;
-    var score;
+    var s;
     for (var i = 0; i < userAns.length; i++) {
     
       if(userAns[i] == correctAns[i]){
         j = j + 1;
       }
     }
-    score = j/userAns.length;
-    score = score * 100;
-    score = parseInt(score);
+    s = j/userAns.length;
+    s = s * 100;
+    s = parseInt(s);
+    sco = s;
+
     if (j == userAns.length) {
         window.alert("you passed the quiz~");
       }else{
-        window.alert("you failed, you score is " + score);
+        window.alert("you failed, you score is " + sco);
       }
+ 
+
   }
-  
+ 
 </script>
 
+
+
+<input type="button" name="checkans" value=" Submit quiz "  onclick="score()" >
+<input type="reset" value=" Clear Answers " onclick="window.location.reload()">
+
+<script type="text/javascript">
+ $.ajax({
+    url: "../../controllers/quizzes_controller",
+    type: "post",
+    data: {data_value: sco},
+    success: function(data){
+      if (data) {
+        
+         
+      }
+    }
+
+  });
+
+</script>
 <%=puts get_users()%>
-<%= @score=Score.new({user_id: @users.id, article_id: 2, score: 100}) %>   
+<%= @score=Score.new({user_id: @users.id, article_id: 1, score: 100}) %>   
 <%=@score.save%>
 
 
-
-<input type="button" name="checkans" value=" Submit quiz " onclick="score()">
-<input type="reset" value=" Clear Answers " onclick="window.location.reload()">
         </center>
         <hr>
       </TD>

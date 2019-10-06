@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_06_004153) do
+ActiveRecord::Schema.define(version: 2019_10_02_040345) do
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
@@ -46,16 +46,18 @@ ActiveRecord::Schema.define(version: 2019_10_06_004153) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "quizzes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "quiz_id"
-    t.text "link"
+  create_table "quizzes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.text "title"
+    t.text "body"
+    t.integer "article_id"
+    t.integer "course_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "scores", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "quiz_id"
+    t.integer "article_id"
     t.integer "score"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -81,6 +83,9 @@ ActiveRecord::Schema.define(version: 2019_10_06_004153) do
     t.boolean "manager", default: false
     t.string "jobTitle"
     t.integer "currentCourse"
+    t.integer "phone"
+    t.string "address"
+    t.string "DoB"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy ]
+  before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
-  before_action :admin_user,     only: :destroy
-
-
+  before_action :admin_user, only: :destroy
 
   # GET /users
   # GET /users.json
@@ -24,7 +22,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  # GET /users/1/edit
+  # GET /users/1/edit. 
   def edit
   end
 
@@ -92,7 +90,8 @@ class UsersController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :jobTitle, :manager)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, 
+        :jobTitle, :manager, :phone_number,:address,:DoB)
     end
 
     def logged_in_user
@@ -115,7 +114,7 @@ class UsersController < ApplicationController
     # Confirms the correct user.
     def correct_user
       @user = User.find(params[:id])
-      unless current_user?(@user) || current_user.manager?
+      unless current_user?(@user) || current_user.manager? || current_user.admin?
         flash[:danger] = "You do not have access"
         redirect_to(root_url) 
       end

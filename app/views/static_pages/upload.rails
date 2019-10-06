@@ -1,0 +1,10 @@
+<script type="text/javascript">
+  function upload()
+  {
+
+    <%=puts get_users()%>
+    <%= @score=Score.new({user_id: @users.id, article_id: 1, score: 100}) %>   
+    <%=@score.save%>
+  }
+
+</script>

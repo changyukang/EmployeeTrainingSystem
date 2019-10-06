@@ -17,7 +17,7 @@ class ScoresControllerTest < ActionDispatch::IntegrationTest
 
   test "should create score" do
     assert_difference('Score.count') do
-      post scores_url, params: { score: { quiz_id: @score.quiz_id, score: @score.score, user_id: @score.user_id } }
+      post scores_url, params: { score: { article_id: @score.article_id, score: @score.score, user_id: @score.user_id } }
     end
 
     assert_redirected_to score_url(Score.last)
@@ -34,7 +34,7 @@ class ScoresControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update score" do
-    patch score_url(@score), params: { score: { quiz_id: @score.quiz_id, score: @score.score, user_id: @score.user_id } }
+    patch score_url(@score), params: { score: { article_id: @score.article_id, score: @score.score, user_id: @score.user_id } }
     assert_redirected_to score_url(@score)
   end
 

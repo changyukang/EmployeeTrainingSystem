@@ -16,9 +16,11 @@
       	<%= f.label :body %>
       	<%= f.text_area :body, class: 'form-control', size: "60x24" %>
 
+        <%= f.label :course_id %>
+        <%= f.collection_select :course_id, Course.order(:name),:id,:name, include_blank: true %>
+
       	<%= f.submit "Create article", class: "btn btn-primary" %>
     <% end %>
 
-<!--<%= render 'form', article: @article %>-->
 
 <%= link_to 'Back', articles_path %>

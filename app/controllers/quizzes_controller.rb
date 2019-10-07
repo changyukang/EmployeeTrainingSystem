@@ -33,10 +33,15 @@ class QuizzesController < ApplicationController
   # POST /quizzes.json
   def create
     @quiz = Quiz.new(quiz_params)
+    @article=Article.find(@quiz.article_id)
+    @course=Course.find(@article.course_id)
+    temp=@course.totalQuizzes+1
+    @course.update_attribute(:totalQuizzes, temp)
+
 
     respond_to do |format|
       if @quiz.save
-        format.html { redirect_to @quiz, notice: 'Quiz was successfully created.' }
+        format.html { redirect_to :controller => 'articles', :action => 'index', notice: 'Quiz was successfully created.' }
         format.json { render :show, status: :created, location: @quiz }
       else
         format.html { render :new }

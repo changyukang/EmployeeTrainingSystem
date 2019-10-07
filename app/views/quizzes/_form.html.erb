@@ -5,15 +5,8 @@
     <%= f.text_field :title %>
   </p>
 
-  <div class="field">
-    <%= f.label :article_id %>
-    <%= f.text_field :article_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :course_id %>
-    <%= f.text_field :course_id %>
-  </div>
+  <%= f.label :article_id %>
+  <%= f.collection_select :article_id, Article.order(:title),:id,:title, include_blank: true %>
 
   <%= f.fields_for :questions do |builder| %>
     <%= render 'question_fields', :f => builder %>

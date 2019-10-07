@@ -24,7 +24,6 @@ class CoursesController < ApplicationController
   end
 
   def show_article_wikis
-    @quiz=Quiz.find(1)
   end
 
   def show_article_quizzes

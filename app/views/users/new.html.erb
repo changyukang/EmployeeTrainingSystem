@@ -6,31 +6,10 @@
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages', obj: @user %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.radio_button :a %>
+      <%= f.label :name,'Question', class: 'form-control' %>
 
-      <%= f.label :jobTitle %>
-      <%= f.text_field :jobTitle, class: 'form-control' %>
-
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-
-      <%= f.label :phone %>
-      <%= f.text_field :phone, class: 'form-control' %>
-
-      <%= f.label :address %>
-      <%= f.text_field :address, class: 'form-control' %>
-
-      <%= f.label :DoB %>
-      <%= f.text_field :DoB, class: 'form-control' %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-
-      <%= f.submit "Create account", class: "btn btn-primary" %>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

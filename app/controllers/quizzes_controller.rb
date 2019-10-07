@@ -1,7 +1,7 @@
 class QuizzesController < ApplicationController
   before_action :set_quiz, only: [:show, :edit, :update, :destroy]
 
-  public void receive(integer data_value){}
+  #public void receive(integer data_value){}
 
   # GET /quizzes
   # GET /quizzes.json

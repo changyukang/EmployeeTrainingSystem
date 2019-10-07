@@ -1,0 +1,6 @@
+load 'db/seeds/courses.seeds.rb'
+load 'db/seeds/articles.seeds.rb'
+load 'db/seeds/users.seeds.rb'
+load 'db/seeds/course_progresses.seeds.rb'
+load 'db/seeds/scores.seeds.rb'
+load 'db/seeds/quizzes.seeds.rb'

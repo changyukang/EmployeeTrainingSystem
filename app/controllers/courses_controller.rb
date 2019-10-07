@@ -11,6 +11,7 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
+     @articles = @course.articles
   end
 
   # GET /courses/new
@@ -23,17 +24,11 @@ class CoursesController < ApplicationController
   end
 
   def show_article_wikis
-    # @user = User.find(session[:user_id])
-    # @currentCourse = @user.currentCourse
-    # # @articles= Article.find(@user.currentCourse)
-    # @articles_wiki = Article.find_by_course_id_and_category(@user.currentCourse, "Wiki")
+    @quiz=Quiz.find(1)
   end
 
   def show_article_quizzes
-    # @user = User.find(session[:user_id])
-    # @currentCourse = @user.currentCourse
-    # # @articles= Article.find(@user.currentCourse)
-    # @articles_quiz = Article.find_by_course_id_and_category(@user.currentCourse, "Quiz")
+
   end
 
   

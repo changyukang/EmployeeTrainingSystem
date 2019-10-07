@@ -6,17 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 CourseProgress.create!(user_id:  2,
-             course_id:              2,
-             progress: 9.5)
-
-CourseProgress.create!(user_id:  4,
-             course_id:              2,
-             progress: 0.6)
+             course_id: 1,
+             progress: 0)
 
 CourseProgress.create!(user_id:  2,
-             course_id:              4,
-             progress: 8.1)
+             course_id: 2,
+             progress: 0)
 
-CourseProgress.create!(user_id:  4,
-             course_id:              1,
-             progress: 1.0)

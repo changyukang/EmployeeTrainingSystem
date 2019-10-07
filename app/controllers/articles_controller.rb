@@ -12,6 +12,8 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @article = Article.find(params[:id])
+    @quiz=Quiz.find(@article.id)
   end
 
   # GET /articles/new

@@ -1,8 +1,8 @@
 <li>
   	<%= link_to course.name, course %>
   	<div class="progress" style="width: 25%;">
-  		<div class="progress-bar" style="width: <%= get_progress(@user.id, course.id) %>%;" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-    		<%= get_progress(@user.id, course.id) %>%
+  		<div class="progress-bar" style="width: <%= get_progress(@user.id, course.id)*100 %>%;" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+    		<%= get_progress(@user.id, course.id)*100 %>%
   		</div>
 	</div>
 </li>

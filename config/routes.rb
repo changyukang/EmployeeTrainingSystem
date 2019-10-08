@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/quizzes/',    to: 'courses#show_quizzes'
   get '/article_wikis/',    to: 'courses#show_article_wikis'
   get '/article_quizzes/',    to: 'courses#show_article_quizzes'
+  get '/new/',    to: 'courses#new'
   resources :courses
   resources :articles
   get 'sessions/new'
@@ -26,6 +27,8 @@ Rails.application.routes.draw do
     get    '/login',   to: 'sessions#new'
     post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+  get '/managerHome/',    to: 'static_pages#managerHome'
+    get '/status/',    to: 'static_pages#status'
   
     resources :users
     resources :groups

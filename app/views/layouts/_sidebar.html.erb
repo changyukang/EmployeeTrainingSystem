@@ -1,0 +1,45 @@
+ <% if logged_in? %>
+<div id="mySidenav" class="sidenav">
+  <nav>
+    <ul>
+    	<li>
+  <% if !current_user.admin? %>
+
+      <li><%= link_to "Courses", courses_path %></li>
+          <li><%= link_to "Users", users_path %></li>
+          <li><%= link_to "Groups", groups_url %></li>
+          <li><%= link_to "Memberships", user_groups_url %></li>
+          <li><%= link_to "Search", search_path%></li>
+          <li><%= link_to "Profile", current_user %></li>
+  <% end %>
+  </li>
+  <li>
+  <% if current_user.admin? %>
+
+    <%= link_to 'employee status', status_path %>
+    <%= link_to 'create new course', new_path %>
+    <%= link_to 'employee admin', users_path %>
+  <% end %>
+</li>
+
+      
+    </ul>
+  </nav>
+ 
+</div>
+
+
+<!-- Use any element to open the sidenav -->
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+<% end %>
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->

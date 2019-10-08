@@ -10,6 +10,9 @@ class StaticPagesController < ApplicationController
 
   def contact
   end
+  
+  def status
+  end
 
   # def show_wikis
   #   @user = User.find(session[:user_id])

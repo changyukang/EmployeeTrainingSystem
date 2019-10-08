@@ -24,7 +24,7 @@ User.create!(name:  "Haoyu Luo",
              email: "haoyu@gmail.com",
              phone: 042466666,
              address: "UoA",
-             DoB: "xx/xx/xxxx",
+             DoB: "01/01/1970",
              password:              "123456",
              password_confirmation: "123456",
              jobTitle: "Senior Systems Architect",
@@ -76,9 +76,9 @@ Group.create!(name: "Front End Development")
 
 Group.create!(name: "Back End Development")
 
-Group.create!(name: "Middle End Development")
+Group.create!(name: "Middle Development")
 
-Group.create!(name: "Infront of Middle but before Front End Development")
+UserGroup.create!(user_id: 2, group_id: 1)
 
 UserGroup.create!(user_id: 2, group_id: 2)
 
@@ -86,5 +86,5 @@ UserGroup.create!(user_id: 3, group_id: 1)
 
 UserGroup.create!(user_id: 4, group_id: 2)
 
-UserGroup.create!(user_id: 5, group_id: 1)
+UserGroup.create!(user_id: 5, group_id: 3)
 

@@ -93,15 +93,17 @@ class QuizzesController < ApplicationController
 
     result=((count.to_f)/(total.to_f))*100
 
+    @score=Score.new({user_id: @user.id, article_id: @quiz.article_id, score: result})
+    @score.save
+
     if result==100
-      @score=Score.new({user_id: @user.id, article_id: @quiz.article_id, score: result})
-      @score.save
 
       temp1=(@course_progress.progress)*(@course.totalQuizzes)+1
       temp=(temp1)/(@course.totalQuizzes)
       @course_progress.update_attribute(:progress, temp)
-      redirect_to @course
+      
     end
+    redirect_to @score
   end
 
   private

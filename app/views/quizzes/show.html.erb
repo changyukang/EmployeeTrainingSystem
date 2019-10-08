@@ -10,7 +10,7 @@ $(function(){
   if((new Date()) > ts){
     // The new year is here! Count towards something else.
     // Notice the *1000 at the end - time must be in milliseconds
-    ts = (new Date()).getTime() + 1*15*1000;
+    ts = (new Date()).getTime() + 30*60*1000;
   }
     
   $('#countdown').countdown({
@@ -59,7 +59,7 @@ $(function(){
       
       if(left < 0){
         left = 0;
-        score();
+        alert("Your answer was submitted!");
       }
       
       // Number of minutes left

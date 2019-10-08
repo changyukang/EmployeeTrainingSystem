@@ -6,7 +6,7 @@
     <%= form_for(@score) do |f| %>
       <%= render 'shared/error_messages', obj: @score %>
 
-      <%= f.label 'a' %>
+      <%= f.label :a %>
       <%= f.radio_button :a, 'Question 1',class: 'form-control' %>
 
       <%= f.submit "Submit", class: "btn btn-primary" %>

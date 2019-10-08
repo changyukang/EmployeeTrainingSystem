@@ -13,19 +13,12 @@
 
         <strong>Course:</strong><%= @course.course_id %>
         <strong>Group:</strong><%= @course.group_id %>
-     
-        <h4>
-            <%= puts get_wikis(@course)%>
 
-            <br><dt><%= "Wikis:" %></dt><br><br>
-            <% @article_wikis.each do |article_wiki|%>
-                <%= puts set_wiki_global_id(article_wiki.id)%>
-                <dd><%=link_to article_wiki.title, :action => 'show_article_wikis',:controller => 'courses'%></dd>
-            <% end%>
-
-        </h4>
-        <h4>
-        </h4>
+        <% @articles.each do |articles| %>
+        <ul>
+            <li><%= link_to articles.title, articles %></li>
+        </ul>
+        <% end %>
     </body>
 </html>
 

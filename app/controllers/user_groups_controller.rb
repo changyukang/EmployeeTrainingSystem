@@ -26,9 +26,17 @@ class UserGroupsController < ApplicationController
   def create
 
     @user_group = UserGroup.new(user_group_params)
+    @group=Group.find(@user_group.group_id)
+    @user=User.find(@user_group.user_id)
+    @courses=Course.where(group_id: @group.id)
+    
+    @courses.each do |c|
+      @courseProgress=CourseProgress.new({user_id: @user.id, course_id: c.id, progress: 0})
+      @courseProgress.save
+    end
+
 
     if @user_group.save
-      #log_in @user
       flash[:success] = "User group was successfully created"
       redirect_to groups_url #could have put redirect_to @user but wanted to be explicit
     else

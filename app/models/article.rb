@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
 	require 'elasticsearch/model'
+	belongs_to :course
 
 	validates :title, presence: true, length: { maximum: 50 }, uniqueness: true
 

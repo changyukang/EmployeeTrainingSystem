@@ -4,21 +4,28 @@
   <strong>Title:</strong>
   <%= @quiz.title %>
 </p>
+<%= form_tag({:action => "grading"}) do %>
+<ol>
+	<% for question in @quiz.questions %>
+		<li>
+			<%=h question.content %>
+			<ul>
+				<% for answer in question.answers %>
+					<li>
+						<%= radio_button_tag("answer[#{question.id}]", answer.id) %>
+						<%=h answer.content %>
+					</li>
+				<% end %>
+			</ul>
+		</li>
+	<% end %>
+</ol>
 
+<%= hidden_field_tag :quiz_id, @quiz.id %>
+
+<div><%= submit_tag("Submit", :class => "submit") %></div>
+<% end %>
 <p>
-  <strong>Body:</strong>
-  <%= @quiz.body %>
+	<%= link_to 'Back', quizzes_path %>
+	<%= link_to 'Edit', edit_quiz_path(@quiz) %>
 </p>
-
-<p>
-  <strong>Article:</strong>
-  <%= @quiz.article_id %>
-</p>
-
-<p>
-  <strong>Course:</strong>
-  <%= @quiz.course_id %>
-</p>
-
-<%= link_to 'Back', quizzes_path %>
-

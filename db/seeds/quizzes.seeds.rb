@@ -86,7 +86,7 @@ Answer.create!(question_id: 10, content: "Ventricle", correct_answer: false)
 Answer.create!(question_id: 10, content: "Atrium", correct_answer: false)
 Answer.create!(question_id: 10, content: "Tricuspid valve", correct_answer: false)
 
-Quiz.create!(title: "Chapter 1: Computer Science Quiz", article_id: 5, course_id: 4 )
+Quiz.create!(title: "Chapter 1: Computer Science Quiz", article_id: 5, course_id: 5 )
 
 Question.create!(quiz_id: 8, content: "Which of these is not a logic gate?")
 

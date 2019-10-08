@@ -4,16 +4,17 @@
     <ul>
     	<li>
   <% if !current_user.admin? %>
-
       <li><%= link_to "Courses", courses_path %></li>
           <li><%= link_to "Users", users_path %></li>
           <li><%= link_to "Groups", groups_url %></li>
           <li><%= link_to "Memberships", user_groups_url %></li>
           <li><%= link_to "Search", search_path%></li>
           <li><%= link_to "Profile", current_user %></li>
+          <% if current_user.manager? %>
+            <li><%= link_to 'Employee Progress', status_path %></li>
+          <% end %>
   <% end %>
-  </li>
-  <li>
+
   <% if current_user.admin? %>
 
     <%= link_to 'employee status', status_path %>

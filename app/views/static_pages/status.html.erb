@@ -1,16 +1,15 @@
 
 <% provide(:title, "Employee Status") %>
 
-<h1>employee status</h1>
+<h1>Employee Progress</h1>
 <p>
-  the body of status(data vision)
   <ul class="users">
 	<%= will_paginate @users %>  
 	  <% @users.each do |user| %>
 	    <li>
-		<%= User.where(:id => user.user_id).pluck(:name).first %>
-		<%= Course.where(:id => user.course_id).pluck(:name).first %>
-		<%= user.progress %>
+		<%= User.where(:id => user.user_id).pluck(:name).first %> | 
+		<%= Course.where(:id => user.course_id).pluck(:name).first %> | 
+		<%= user.progress*100 %>%
 		</li>
 	  <% end %>  
 	<%= will_paginate @users %>

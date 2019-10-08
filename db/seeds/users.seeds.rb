@@ -81,3 +81,10 @@ Group.create!(name: "Middle End Development")
 Group.create!(name: "Infront of Middle but before Front End Development")
 
 UserGroup.create!(user_id: 2, group_id: 2)
+
+UserGroup.create!(user_id: 3, group_id: 1)
+
+UserGroup.create!(user_id: 4, group_id: 2)
+
+UserGroup.create!(user_id: 5, group_id: 1)
+

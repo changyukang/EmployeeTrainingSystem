@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<html>
+    <head>
+        <title>Wiki</title>
+    </head>
+    <body>
+        <%= puts get_wiki_by_id($article_wiki_id)%>
+        <% @article_wikis.each do|article_wiki|%>
+            <%= raw article_wiki.body%>
+
+            <%= puts get_quizzes(article_wiki.id)%>
+            
+            <% @article_quizzes.each do |article_quiz|%>
+                <%= puts set_quiz_global_id(article_quiz.id)%>
+                <dd><%= link_to 'Quiz', quiz_path(@quiz) %></dd>
+            <% end%>
+        <% end%>
+    </body>
+</html>

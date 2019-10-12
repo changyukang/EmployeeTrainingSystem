@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+<html>
+    <head>
+        <title>Courses</title>
+    </head>
+    <body>
+        <h1>
+            <%= @course.name%>
+        </h1>
+        <h4>
+            <%= raw @course.introduction%>
+        </h4>
+
+        <strong>Course:</strong><%= @course.course_id %>
+        <strong>Group:</strong><%= @course.group_id %>
+
+        <% @articles.each do |articles| %>
+        <ul>
+            <li><%= link_to articles.title, articles %></li>
+        </ul>
+        <% end %>
+    </body>
+</html>
+
+<%# TODO: only visible to admin users %>
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>

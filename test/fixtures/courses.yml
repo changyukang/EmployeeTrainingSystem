@@ -3,9 +3,11 @@
 one:
   name: MyString
   introduction: MyText
-  id: 1
+  course_id: 1
+  group_id: 1
 
 two:
   name: MyString
   introduction: MyText
-  id: 1
+  course_id: 1
+  group_id: 1

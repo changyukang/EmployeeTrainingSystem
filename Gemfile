@@ -14,6 +14,7 @@ gem 'sass-rails', '~> 5'
 
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'bootstrap-toggle-rails'
+gem 'tabs_on_rails', '~> 3.0'
 
 gem 'uglifier', '~> 3.0'
 gem 'coffee-rails', '~> 5.0'
@@ -31,6 +32,12 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'better_errors', '~> 2.1', '>= 2.1.1'
 
+gem 'seedbank', '~> 0.4.0'
+
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'
+gem 'will_paginate-bootstrap'
+
+gem 'chartkick', '~> 1.4', '>= 1.4.1'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -66,3 +73,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# search with elasticsearch
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'

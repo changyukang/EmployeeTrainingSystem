@@ -1,0 +1,30 @@
+<% provide(:title, 'Courses') %>
+<%# abandoned %>
+<html>
+    <head>
+        <title>Courses</title>
+    </head>
+    <body>
+        <h1>
+            <% @user_groups.each do |user_group| %>
+                <%= user_group.group_id%>  
+            <% end %>  
+
+            <% @array_courses.each do |array_course| %>
+                <%= render array_course%>  
+            <% end %> 
+        </h1>
+        <h4>
+        </h4>
+     
+        <h4>
+            <br><dt><%= "Wikis:" %></dt><br><br>
+            <dd><%=link_to @articles_wiki.title, :action => 'show_wikis',:controller => 'courses'%></dd>
+
+            <br><dt><%= "Quizzes:" %></dt><br><br>
+            <dd><%=link_to @articles_quiz.title, :action => 'show_quizzes',:controller => 'courses'%></dd>
+        </h4>
+        <h4>
+        </h4>
+    </body>
+</html>

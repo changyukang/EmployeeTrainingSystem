@@ -4,13 +4,22 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages' %>
+      <%= render 'shared/error_messages', obj: @user%>
 
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
 
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :phone %>
+      <%= f.text_field :phone, class: 'form-control' %>
+
+      <%= f.label :address %>
+      <%= f.text_field :address, class: 'form-control' %>
+
+      <%= f.label :DoB %>
+      <%= f.text_field :DoB, class: 'form-control' %>
 
       <% if current_user.manager? || current_user.admin?%>
         <%= f.label :jobTitle, "Job Title" %>
@@ -32,9 +41,5 @@
       <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
 
-    <!--<div class="gravatar_edit">
-      <%= gravatar_for @user %>
-      <a href="http://gravatar.com/emails" target="_blank">change</a>
-    </div>-->
   </div>
 </div>

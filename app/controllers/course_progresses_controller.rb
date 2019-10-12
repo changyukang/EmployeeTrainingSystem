@@ -1,4 +1,5 @@
 class CourseProgressesController < ApplicationController
+  before_action :logged_in_user
   before_action :set_course_progress, only: [:show, :edit, :update, :destroy]
 
   # GET /course_progresses

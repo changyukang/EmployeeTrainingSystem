@@ -1,4 +1,5 @@
 class UserGroupsController < ApplicationController
+  before_action :logged_in_user
   before_action :set_user_group, only: [:show, :edit, :update, :destroy]
 
   # GET /user_groups

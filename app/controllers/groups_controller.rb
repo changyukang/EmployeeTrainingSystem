@@ -41,7 +41,7 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1.json
   def update
     @group = Group.find(params[:id])
-    if @group.update_attributes(group_params)
+    if @group.update(group_params)
       flash[:success] = "Group updated"
       redirect_to @group
     else

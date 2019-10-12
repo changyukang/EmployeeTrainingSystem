@@ -32,7 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'better_errors', '~> 2.1', '>= 2.1.1'
 
-gem 'seedbank', '~> 0.4.0'
+# gem 'seedbank', '~> 0.4.0'
 
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'will_paginate-bootstrap'

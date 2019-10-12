@@ -30,7 +30,7 @@ class GroupsController < ApplicationController
 
     if @group.save
       #log_in @user
-      flash[:success] = "Account created"
+      flash[:success] = "Group created"
       redirect_to group_url(@group) #could have put redirect_to @user but wanted to be explicit
     else
       render 'new'
@@ -62,8 +62,7 @@ class GroupsController < ApplicationController
     def set_group
       @group = Group.find(params[:id])
     end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
+    
     def group_params
       params.require(:group).permit(:name)
     end

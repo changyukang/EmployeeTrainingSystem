@@ -4,7 +4,10 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    # @courses = Course.all
+    @courses = Course.paginate(:page => params[:page], :per_page=>5)
+  end
+
+  def show_user_courses
     courses # select the courses belong to the current user
   end
 
@@ -27,7 +30,6 @@ class CoursesController < ApplicationController
   end
 
   def show_article_quizzes
-
   end
 
   
@@ -65,14 +67,12 @@ class CoursesController < ApplicationController
   # PATCH/PUT /courses/1
   # PATCH/PUT /courses/1.json
   def update
-    respond_to do |format|
-      if @course.update(course_params)
-        format.html { redirect_to @course, notice: 'Course was successfully updated.' }
-        format.json { render :show, status: :ok, location: @course }
-      else
-        format.html { render :edit }
-        format.json { render json: @course.errors, status: :unprocessable_entity }
-      end
+    @course = Course.find(params[:id])
+    if @course.update(course_params)
+      flash[:success] = "Course Updated"
+      redirect_to @course
+    else
+      render 'edit'
     end
   end
 

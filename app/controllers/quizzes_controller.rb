@@ -55,7 +55,7 @@ class QuizzesController < ApplicationController
   def update
     @question = Question.find(params[:id])
     @quiz = Quiz.find(params[:id])
-    if @quiz.update_attributes(quiz_params)
+    if @quiz.update(quiz_params)
       flash[:success] = "Quiz updated"
       redirect_to @quiz
     else

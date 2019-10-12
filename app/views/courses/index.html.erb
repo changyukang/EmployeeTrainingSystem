@@ -2,26 +2,15 @@
 
 <h1>Courses</h1>
 
-<%#= bar_chart (CourseProgress.find_by_sql ["select * from course_progresses where user_id = 4 "]).count %>
-<%#= bar_chart CourseProgress.group(:progress).count, library: {legend:{position: "bottom"}} %>
-
-<%# data = [['Task', 'Course Progress'],
-          ['',      100],
-          ['Course1',     23],
-          ['Course2',      2],
-          ['Course3',  5],
-          ['Course4', 8],
-          ['Course5',    15]] %>
-
-<%= @courses_count%>
-<%#= puts get_course_progress()%>
-<%#= bar_chart @td_array_progress, library: { barSliceText: 'value', height: '8000px' } %>
-
 <ul class="courses">
   <%= will_paginate @courses%>  
     <% @courses.each do |course| %>
       <h4>
-        <strong><%= render course%></strong>
+        <strong><%= link_to course.name, course %>
+          <% if current_user.manager? %>
+            | <%= link_to "delete", course, method: :delete, data: { confirm: "You sure?" } %>
+          <% end %>
+        </strong>
       </h4>
     <% end %> 
   <%= will_paginate @courses%>

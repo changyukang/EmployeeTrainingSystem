@@ -29,8 +29,6 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
-
-
     if @article.save
       flash[:success] = "Article was successfully created."
       redirect_to :controller => 'quizzes', :action => 'new'  #could have put redirect_to @user but wanted to be explicit

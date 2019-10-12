@@ -4,6 +4,7 @@ one:
   title: MyString
   category: MyString
   body: MyText
+  course_id: '1'
 
 two:
   title: MyString2

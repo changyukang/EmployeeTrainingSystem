@@ -97,10 +97,10 @@ class QuizzesController < ApplicationController
     @score=Score.new({user_id: @user.id, article_id: @quiz.article_id, score: result})
     @score.save
 
-    if result==100
+    if result>90
 
-      temp1=(@course_progress.progress)*(@course.totalQuizzes)+1
-      temp=(temp1)/(@course.totalQuizzes)
+      temp1=(@course_progress.progress.to_f)*(@course.totalQuizzes.to_f)+1
+      temp=(temp1.to_f)/(@course.totalQuizzes.to_f)*100
       @course_progress.update_attribute(:progress, temp)
       
     end

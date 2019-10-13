@@ -22,13 +22,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :course_id %>
-    <%= form.number_field :course_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :group_id %>
-    <%= form.number_field :group_id %>
+    <%= form.label :Group %>
+    <%= form.collection_select :group_id, Group.order(:name),:id,:name, include_blank: true %>
   </div>
 
   <div class="actions">

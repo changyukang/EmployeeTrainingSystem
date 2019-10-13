@@ -1,11 +1,12 @@
 class GroupsController < ApplicationController
   before_action :logged_in_user
   before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :manager_user,   only: [:index]
 
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.paginate(:page => params[:page], :per_page=>5)
+    @groups = Group.paginate(:page => params[:page], :per_page=>20)
   end
 
   # GET /groups/1
@@ -63,6 +64,11 @@ class GroupsController < ApplicationController
     def set_group
       @group = Group.find(params[:id])
     end
+
+    # Confirms a manager user.
+  def manager_user
+    redirect_to(root_url) unless current_user.manager?
+  end
     
     def group_params
       params.require(:group).permit(:name)

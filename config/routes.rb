@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get '/wikis/',    to: 'courses#show_wikis'
   get '/quizzes/',    to: 'courses#show_quizzes'
-  get '/show_user_courses/',    to: 'courses#show_user_courses'
+  get '/mycourses/',    to: 'courses#show_user_courses'
   get '/article_wikis/',    to: 'courses#show_article_wikis'
   get '/article_quizzes/',    to: 'courses#show_article_quizzes'
   get '/new/',    to: 'courses#new'

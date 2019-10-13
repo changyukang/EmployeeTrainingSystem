@@ -1,15 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Courses</h1>
+<h1>My Courses</h1>
 
 <ul class="courses">
     <% @courses.each do |course| %>
       <h4>
-        <strong><%= link_to course.name, course %></strong>
+        <strong><%= render course %></strong>
       </h4>
     <% end %> 
 </ul>
-
 <br>
-
-<!--<%= link_to 'New Course', new_course_path %>-->

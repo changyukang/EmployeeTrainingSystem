@@ -32,7 +32,7 @@ class UserGroupsController < ApplicationController
     @courses=Course.where(group_id: @group.id)
     
     @courses.each do |c|
-      @courseProgress=CourseProgress.new({user_id: @user.id, course_id: c.id, progress: 0})
+      @courseProgress=UserCourse.new({user_id: @user.id, course_id: c.id, progress: 0})
       @courseProgress.save
     end
 

@@ -12,7 +12,7 @@ class StaticPagesController < ApplicationController
   end
   
   def status
-    @users = CourseProgress.paginate(:page => params[:page], :per_page=>5)
+    @users = UserCourse.paginate(:page => params[:page], :per_page=>5)
   end
 
   # def show_wikis

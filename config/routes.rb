@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_courses
   resources :scores
   get 'search', to: 'search#search'
 
@@ -8,7 +9,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :course_progresses
   get '/wikis/',    to: 'courses#show_wikis'
   get '/quizzes/',    to: 'courses#show_quizzes'
   get '/show_user_courses/',    to: 'courses#show_user_courses'

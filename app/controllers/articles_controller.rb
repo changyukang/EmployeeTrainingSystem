@@ -99,13 +99,6 @@ class ArticlesController < ApplicationController
       params.require(:article).permit(:title, :category, :body, :course_id)
     end
 
-    def logged_in_user
-      unless logged_in?
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
-    end
-
     # Confirms the correct user.
     def adimin_and_manager_user
       unless current_user.manager? || current_user.admin?

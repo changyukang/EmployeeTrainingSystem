@@ -1,4 +1,5 @@
 class QuizzesController < ApplicationController
+  before_action :logged_in_user
   before_action :set_quiz, only: [:show, :edit, :update, :destroy]
 
   #public void receive(integer data_value){}
@@ -77,7 +78,7 @@ class QuizzesController < ApplicationController
     @user = User.find(session[:user_id])
     @quiz=Quiz.find(params[:quiz_id])
     @course=Course.find(@quiz.course_id)
-    @course_progress=CourseProgress.find_by(user_id: @user.id, course_id: @course.id)
+    @course_progress=UserCourse.find_by(user_id: @user.id, course_id: @course.id)
 
     total=@quiz.questions.count
     answers = params[:answer]

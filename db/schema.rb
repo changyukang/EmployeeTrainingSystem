@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_07_023833) do
+ActiveRecord::Schema.define(version: 2019_10_13_002800) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "question_id"
@@ -28,14 +28,6 @@ ActiveRecord::Schema.define(version: 2019_10_07_023833) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["title"], name: "index_articles_on_title", unique: true
-  end
-
-  create_table "course_progresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "course_id"
-    t.decimal "progress", precision: 3, scale: 2
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -78,6 +70,16 @@ ActiveRecord::Schema.define(version: 2019_10_07_023833) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "user_courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "course_id", null: false
+    t.integer "progress"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_user_courses_on_course_id"
+    t.index ["user_id"], name: "index_user_courses_on_user_id"
+  end
+
   create_table "user_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "group_id", null: false
@@ -104,6 +106,8 @@ ActiveRecord::Schema.define(version: 2019_10_07_023833) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "user_courses", "courses"
+  add_foreign_key "user_courses", "users"
   add_foreign_key "user_groups", "groups"
   add_foreign_key "user_groups", "users"
 end

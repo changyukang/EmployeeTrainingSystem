@@ -9,7 +9,9 @@ class CoursesController < ApplicationController
   end
 
   def show_user_courses
-    courses # select the courses belong to the current user
+    @user = User.find(session[:user_id])
+    @courses=@user.courses
+    #courses # select the courses belong to the current user
   end
 
   # GET /courses/1

@@ -39,15 +39,6 @@ class UsersController < ApplicationController
     else
       render 'new'
     end    
-    #respond_to do |format|
-    #  if @user.save
-    #    format.html { redirect_to @user, notice: 'User was successfully created.' }
-    #    format.json { render :show, status: :created, location: @user }
-    #  else
-    #    format.html { render :new }
-    #    format.json { render json: @user.errors, status: :unprocessable_entity }
-    #  end
-    #end
   end
 
   # PATCH/PUT /users/1
@@ -61,16 +52,7 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-  #  respond_to do |format|
-  #    if @user.update(user_params)
-  #      format.html { redirect_to @user, notice: 'User was successfully updated.' }
-  #      format.json { render :show, status: :ok, location: @user }
-  #    else
-  #      format.html { render :edit }
-  #      format.json { render json: @user.errors, status: :unprocessable_entity }
-  #    end
-  #  end
-  #end
+
 
   def destroy
     User.find(params[:id]).destroy
@@ -78,26 +60,21 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
-  #def destroy
-  #  @user.destroy
-  #  respond_to do |format|
-  #    format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-  #    format.json { head :no_content }
-  #  end
-  #end
-
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation, 
-        :jobTitle, :manager, :phone_number,:address,:DoB)
+        :jobTitle, :manager, :phone,:address,:DoB)
     end
 
     # Confirms an admin user.
     def admin_user
       redirect_to(root_url) unless current_user.admin?
+    end
+
+      # Confirms a manager user.
+    def manager_user
+      redirect_to(root_url) unless current_user.manager?
     end
 
     # Confirms the correct user.

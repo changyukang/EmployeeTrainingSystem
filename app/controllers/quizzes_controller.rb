@@ -1,4 +1,5 @@
 class QuizzesController < ApplicationController
+  before_action :logged_in_user
   before_action :set_quiz, only: [:show, :edit, :update, :destroy]
 
   #public void receive(integer data_value){}
@@ -36,7 +37,7 @@ class QuizzesController < ApplicationController
     @article=Article.find(@quiz.article_id)
     @course=Course.find(@article.course_id)
     temp=@course.totalQuizzes+1
-    @course.update_attribute(:totalQuizzes, temp)
+    @course.update(:totalQuizzes, temp)
 
 
     respond_to do |format|
@@ -55,7 +56,7 @@ class QuizzesController < ApplicationController
   def update
     @question = Question.find(params[:id])
     @quiz = Quiz.find(params[:id])
-    if @quiz.update_attributes(quiz_params)
+    if @quiz.update(quiz_params)
       flash[:success] = "Quiz updated"
       redirect_to @quiz
     else
@@ -77,7 +78,7 @@ class QuizzesController < ApplicationController
     @user = User.find(session[:user_id])
     @quiz=Quiz.find(params[:quiz_id])
     @course=Course.find(@quiz.course_id)
-    @course_progress=CourseProgress.find_by(user_id: @user.id, course_id: @course.id)
+    @course_progress=UserCourse.find_by(user_id: @user.id, course_id: @course.id)
 
     total=@quiz.questions.count
     answers = params[:answer]
@@ -96,10 +97,10 @@ class QuizzesController < ApplicationController
     @score=Score.new({user_id: @user.id, article_id: @quiz.article_id, score: result})
     @score.save
 
-    if result==100
+    if result>90
 
-      temp1=(@course_progress.progress)*(@course.totalQuizzes)+1
-      temp=(temp1)/(@course.totalQuizzes)
+      temp1=(@course_progress.progress.to_f)*(@course.totalQuizzes.to_f)+1
+      temp=(temp1.to_f)/(@course.totalQuizzes.to_f)*100
       @course_progress.update_attribute(:progress, temp)
       
     end
@@ -114,6 +115,6 @@ class QuizzesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def quiz_params
-      params.require(:quiz).permit(:title, :body, :article_id, :course_id, :data_value, questions_attributes: [:quiz_id, :content, answers_attributes:[:question_id, :content, :correct_answer]])
+      params.require(:quiz).permit(:title, :body, :article_id, :course_id, :data_value, questions_attributes: [:id, :quiz_id, :content, answers_attributes:[:id, :question_id, :content, :correct_answer]])
     end
 end

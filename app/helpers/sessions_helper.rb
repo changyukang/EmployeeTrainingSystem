@@ -21,6 +21,13 @@ module SessionsHelper
     user == current_user
   end
 
+  def logged_in_user
+      unless logged_in?
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+  end
+
   # Logs out the current user.
   def log_out
     session.delete(:user_id)

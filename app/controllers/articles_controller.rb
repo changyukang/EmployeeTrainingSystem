@@ -29,8 +29,6 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
-
-
     if @article.save
       flash[:success] = "Article was successfully created."
       redirect_to :controller => 'quizzes', :action => 'new'  #could have put redirect_to @user but wanted to be explicit
@@ -99,13 +97,6 @@ class ArticlesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
       params.require(:article).permit(:title, :category, :body, :course_id)
-    end
-
-    def logged_in_user
-      unless logged_in?
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
     end
 
     # Confirms the correct user.

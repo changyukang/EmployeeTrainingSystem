@@ -2,7 +2,17 @@
 
 testuser:
   name: Test User
-  email: test@example.com
+  email: test1@example.com
+  password_digest: <%= User.digest('password') %>
+  manager: true
+  admin: true
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>
+
+testuser2:
+  name: Test User
+  email: test2@example.com
+  manager: true
   password_digest: <%= User.digest('password') %>
   created_at: <%= Time.zone.now %>
   updated_at: <%= Time.zone.now %>

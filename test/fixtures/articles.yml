@@ -4,8 +4,9 @@ one:
   title: MyString
   category: MyString
   body: MyText
+  course_id: '1'
 
 two:
-  title: MyString
-  category: MyString
-  body: MyText
+  title: MyString2
+  category: MyString2
+  body: MyText2

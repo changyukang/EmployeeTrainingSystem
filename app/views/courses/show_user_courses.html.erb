@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<h1>My Courses</h1>
+
+<ul class="courses">
+    <% @courses.each do |course| %>
+      <h4>
+        <strong><%= render course %></strong>
+      </h4>
+    <% end %> 
+</ul>
+<br>

@@ -28,6 +28,6 @@ module CoursesHelper
     end
 
     def get_progress(userID, courseID)
-        return CourseProgress.where(:user_id => userID, :course_id => courseID).pluck(:progress).first
+        return UserCourse.where(:user_id => userID, :course_id => courseID).pluck(:progress).first
     end
 end

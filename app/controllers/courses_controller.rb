@@ -1,11 +1,18 @@
 class CoursesController < ApplicationController
+  before_action :logged_in_user
   before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :manager_user,   only: [:index]
 
   # GET /courses
   # GET /courses.json
   def index
-    # @courses = Course.all
-    courses # select the courses belong to the current user
+    @courses = Course.paginate(:page => params[:page], :per_page=>20)
+  end
+
+  def show_user_courses
+    @user = User.find(session[:user_id])
+    @courses=@user.courses
+    #courses # select the courses belong to the current user
   end
 
   # GET /courses/1
@@ -27,7 +34,6 @@ class CoursesController < ApplicationController
   end
 
   def show_article_quizzes
-
   end
 
   
@@ -65,14 +71,12 @@ class CoursesController < ApplicationController
   # PATCH/PUT /courses/1
   # PATCH/PUT /courses/1.json
   def update
-    respond_to do |format|
-      if @course.update(course_params)
-        format.html { redirect_to @course, notice: 'Course was successfully updated.' }
-        format.json { render :show, status: :ok, location: @course }
-      else
-        format.html { render :edit }
-        format.json { render json: @course.errors, status: :unprocessable_entity }
-      end
+    @course = Course.find(params[:id])
+    if @course.update(course_params)
+      flash[:success] = "Course Updated"
+      redirect_to @course
+    else
+      render 'edit'
     end
   end
 
@@ -91,6 +95,11 @@ class CoursesController < ApplicationController
     def set_course
       @course = Course.find(params[:id])
     end
+
+    # Confirms a manager user.
+  def manager_user
+    redirect_to(root_url) unless current_user.manager?
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params

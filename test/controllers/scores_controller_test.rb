@@ -2,6 +2,7 @@ require 'test_helper'
 
 class ScoresControllerTest < ActionDispatch::IntegrationTest
   setup do
+    log_in_as(users(:testuser))
     @score = scores(:one)
   end
 

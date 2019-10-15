@@ -1,4 +1,5 @@
 class ScoresController < ApplicationController
+  before_action :logged_in_user
   before_action :set_score, only: [:show, :edit, :update, :destroy]
 
   # GET /scores

@@ -1,10 +1,10 @@
-<%= form_with(model: course_progress, local: true) do |form| %>
-  <% if course_progress.errors.any? %>
+<%= form_with(model: user_course, local: true) do |form| %>
+  <% if user_course.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(course_progress.errors.count, "error") %> prohibited this course_progress from being saved:</h2>
+      <h2><%= pluralize(user_course.errors.count, "error") %> prohibited this user_course from being saved:</h2>
 
       <ul>
-        <% course_progress.errors.full_messages.each do |message| %>
+        <% user_course.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -18,12 +18,12 @@
 
   <div class="field">
     <%= form.label :course_id %>
-    <%= form.number_field :course_id %>
+    <%= form.text_field :course_id %>
   </div>
 
   <div class="field">
     <%= form.label :progress %>
-    <%= form.text_field :progress %>
+    <%= form.number_field :progress %>
   </div>
 
   <div class="actions">

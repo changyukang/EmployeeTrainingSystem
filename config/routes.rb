@@ -12,8 +12,6 @@ Rails.application.routes.draw do
   get '/wikis/',    to: 'courses#show_wikis'
   get '/quizzes/',    to: 'courses#show_quizzes'
   get '/mycourses/',    to: 'courses#show_user_courses'
-  get '/article_wikis/',    to: 'courses#show_article_wikis'
-  get '/article_quizzes/',    to: 'courses#show_article_quizzes'
   get '/new/',    to: 'courses#new'
   resources :courses
   resources :articles
@@ -22,8 +20,6 @@ Rails.application.routes.draw do
     get  '/help',    to: 'static_pages#help'
     get  '/about',   to: 'static_pages#about'
     get  '/contact', to: 'static_pages#contact'
-    get  '/quiz1', to: 'static_pages#quiz1'
-    get  '/quiz2', to: 'static_pages#quiz2'
     get  '/signup',  to: 'users#new'
     get    '/login',   to: 'sessions#new'
     post   '/login',   to: 'sessions#create'

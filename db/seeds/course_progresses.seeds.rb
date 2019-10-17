@@ -5,19 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-UserCourse.create!(user_id:  2,
+UserCourse.create!(user_id:  6,
              course_id: 1,
              progress: 0)
 
-UserCourse.create!(user_id:  2,
+UserCourse.create!(user_id:  6,
              course_id: 2,
              progress: 0)
 
-UserCourse.create!(user_id:  2,
+UserCourse.create!(user_id:  6,
              course_id: 3,
              progress: 0)
 
-UserCourse.create!(user_id:  2,
+UserCourse.create!(user_id:  6,
              course_id: 4,
              progress: 0)
 

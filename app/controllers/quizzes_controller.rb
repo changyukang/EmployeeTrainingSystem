@@ -13,6 +13,22 @@ class QuizzesController < ApplicationController
   # GET /quizzes/1
   # GET /quizzes/1.json
   def show
+    @user = User.find(session[:user_id])
+    @quiz=Quiz.find(params[:id])
+    @article=Article.find(params[:id])
+
+    if(Score.where(["user_id = ? and article_id = ? and score > ?", @user.id, @quiz.id, 49]).blank?)
+      if(Score.find_by(user_id: @user.id, article_id: @quiz.id, score: -1).blank?)
+        @score = Score.new({user_id: @user.id, article_id: @quiz.id, score: -1})
+        @score.save
+      else
+        @score=Score.find_by(user_id: @user.id, article_id: @quiz.id, score: -1)
+      end
+    else
+      flash[:danger] = "Quiz already passed"
+      redirect_to(@article)
+    end
+
   end
 
   # GET /quizzes/new
@@ -79,6 +95,7 @@ class QuizzesController < ApplicationController
     @quiz=Quiz.find(params[:quiz_id])
     @course=Course.find(@quiz.course_id)
     @course_progress=UserCourse.find_by(user_id: @user.id, course_id: @course.id)
+    @score = Score.find_by(user_id: @user.id, article_id: @quiz.id, score: -1)
 
     total=@quiz.questions.count
     answers = params[:answer]
@@ -93,18 +110,14 @@ class QuizzesController < ApplicationController
     end
 
     result=((count.to_f)/(total.to_f))*100
+    @score.update_attribute(:score, result)
 
-    @score=Score.new({user_id: @user.id, article_id: @quiz.article_id, score: result})
-    @score.save
-
-    if result>90
-
+    if result>=50
       temp1=(@course_progress.progress.to_f)*(@course.totalQuizzes.to_f)+1
       temp=(temp1.to_f)/(@course.totalQuizzes.to_f)*100
       @course_progress.update_attribute(:progress, temp)
-      
     end
-    redirect_to @score
+    render js: "window.location='#{score_path(@score)}'"
   end
 
   private

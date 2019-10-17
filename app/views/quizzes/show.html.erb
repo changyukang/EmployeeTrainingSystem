@@ -6,7 +6,7 @@
 <body> 
 <p id="demo"></p> 
 <script> 
-var deadline = new Date("<%= Time.now + (60*60) %>").getTime(); 
+var deadline = new Date("<%= @score.created_at + (30) %>").getTime(); 
 var x = setInterval(function() { 
 var now = new Date().getTime(); 
 var t = deadline - now; 
@@ -17,19 +17,22 @@ var seconds = Math.floor((t % (1000 * 60)) / 1000);
 document.getElementById("demo").innerHTML = days + "d "  
 + hours + "h " + minutes + "m " + seconds + "s "; 
     if (t < 0) { 
-        clearInterval(x); 
-        document.getElementById("demo").innerHTML = "EXPIRED"; 
+        clearInterval(x);
+         $("#quiz-form").trigger('submit.rails');
+        window.location = "<%= score_path @score %>";
     } 
 }, 1000); 
 </script> 
 
 <p id="notice"><%= notice %></p>
 
+
+<!--Call new score and if no other score is done -->
 <p>
   <strong>Title:</strong>
   <%= @quiz.title %>
 </p>
-<%= form_tag({:id => 'quiz-form', :action => "grading"}) do %>
+<%= form_tag({:action => "grading"}, :id => 'quiz-form',:remote => true) do %>
 <ol>
 	<% for question in @quiz.questions %>
 		<li>

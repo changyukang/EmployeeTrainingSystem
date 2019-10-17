@@ -10,16 +10,20 @@
         <h4>
             <%= raw @course.introduction%>
         </h4>
-        <strong>Group:</strong><%= @course.group_id %>
 
-        <% @articles.each do |articles| %>
+        <% @articles.each do |article| %>
         <ul>
-            <li><%= link_to articles.title, articles %></li>
+            <%if(Score.where(["user_id = ? and article_id = ? and score > ?", @user.id, article.id, 49]).blank?) %>
+                <li><%= link_to article.title, article %></li>
+            <% else %>
+                <li><%= link_to article.title, article %> (Completed)</li>
+            <% end %>
         </ul>
         <% end %>
     </body>
 </html>
 
-<%# TODO: only visible to admin users %>
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<% if current_user.manager? %>
+  <%= link_to 'Edit', edit_course_path(@course) %> | 
+  <%= link_to 'Create Article', new_article_path %>
+<% end %>

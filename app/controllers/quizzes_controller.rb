@@ -113,7 +113,7 @@ class QuizzesController < ApplicationController
     @score.update_attribute(:score, result)
 
     if result>=50
-      temp1=(@course_progress.progress.to_f)*(@course.totalQuizzes.to_f)+1
+      temp1=((@course_progress.progress.to_f)/100)*(@course.totalQuizzes.to_f)+1
       temp=(temp1.to_f)/(@course.totalQuizzes.to_f)*100
       @course_progress.update_attribute(:progress, temp)
     end

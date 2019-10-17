@@ -12,13 +12,13 @@ class CoursesController < ApplicationController
   def show_user_courses
     @user = User.find(session[:user_id])
     @courses=@user.courses
-    #courses # select the courses belong to the current user
   end
 
   # GET /courses/1
   # GET /courses/1.json
   def show
-     @articles = @course.articles
+    @user = User.find(session[:user_id])
+    @articles = @course.articles
   end
 
   # GET /courses/new
@@ -57,15 +57,13 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
 
-    respond_to do |format|
-      if @course.save
-        format.html { redirect_to @course, notice: 'Course was successfully created.' }
-        format.json { render :show, status: :created, location: @course }
-      else
-        format.html { render :new }
-        format.json { render json: @course.errors, status: :unprocessable_entity }
-      end
-    end
+    if @course.save
+      #log_in @user
+      flash[:success] = "Course created"
+      redirect_to course_url(@course) #could have put redirect_to @user but wanted to be explicit
+    else
+      render 'new'
+    end 
   end
 
   # PATCH/PUT /courses/1

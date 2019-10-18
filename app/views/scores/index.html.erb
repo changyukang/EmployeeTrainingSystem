@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Scores</h1>
+<h1>All Scores</h1> 
 
 <table>
   <thead>
@@ -12,21 +12,13 @@
     </tr>
   </thead>
 
-  <p>
-    <%= form_tag "", id: "score-form", method: :get do %>
-      <%= select_tag 'article_id', options_for_select(@articles.collect{ |a| [a.title, a.id] }) %>
-      <%=submit_tag "Filter", disable_with: 'Filtering...', class: 'btn btn-block btn-default' %>
-    <%end%>
-  </p>
 
-  <%= @scoreArray.count %>
-  <tbody>
+ <tbody>
     <% @scores.each do |score| %>
       <tr>
-        <td><%= score.user_id %></td>
-        <td><%= score.article_id %></td>
+        <td><%= User.find(score.user_id).name %></td>
+        <td><%= Article.find(score.article_id).title %></td>
         <td><%= score.score %></td>
-        <td><%= link_to 'Show', score %></td>
         <td><%= link_to 'Edit', edit_score_path(score) %></td>
         <td><%= link_to 'Destroy', score, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -35,5 +27,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Score', new_score_path %>

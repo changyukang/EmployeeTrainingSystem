@@ -9,7 +9,7 @@
 	    <li>
 		<%= User.where(:id => user.user_id).pluck(:name).first %> | 
 		<%= Course.where(:id => user.course_id).pluck(:name).first %> | 
-		<%= user.progress*100 %>%
+		<%= user.progress %>%
 		</li>
 	  <% end %>  
 	<%= will_paginate @users %>

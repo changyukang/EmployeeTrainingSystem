@@ -6,6 +6,9 @@ class ScoresController < ApplicationController
   # GET /scores.json
   def index
     @scores = Score.all
+    @articles=Article.all
+    @scoreArray=Score.where(article_id: params[:article_id])
+    bin1=Score.where(article_id: params[:article_id])
   end
 
   # GET /scores/1

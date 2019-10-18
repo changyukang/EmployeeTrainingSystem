@@ -12,6 +12,14 @@
     </tr>
   </thead>
 
+  <p>
+    <%= form_tag "", id: "score-form", method: :get do %>
+      <%= select_tag 'article_id', options_for_select(@articles.collect{ |a| [a.title, a.id] }) %>
+      <%=submit_tag "Filter", disable_with: 'Filtering...', class: 'btn btn-block btn-default' %>
+    <%end%>
+  </p>
+
+  <%= @scoreArray.count %>
   <tbody>
     <% @scores.each do |score| %>
       <tr>

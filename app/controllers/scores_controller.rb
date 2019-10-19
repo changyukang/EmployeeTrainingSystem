@@ -24,9 +24,18 @@ class ScoresController < ApplicationController
     @test=[["0-10%",array[0]],["10-20%",array[1]],["20-30%",array[2]],["30-40%",array[3]],["40-50%",array[4]],["50-60%",array[5]],["60-70%",array[6]],
     ["70-80%",array[7]],["80-90%",array[8]],["90-100%",array[9]]]
     @averageScore=Score.where(article_id: params[:article_id]).average(:score)
-    attempts=Score.where(article_id: params[:article_id]).count
-    numUsers=Score.find(article_id: params[:article_id]).count
-    @averageAttempts=attempts/numUsers
+    attempts=Score.where(article_id: params[:article_id])
+    hash=attempts.distinct.group(:user_id).count()
+
+    count=0
+    sum=0
+    hash.each do |key, value|
+      count=count+1
+      sum=sum+value
+    end
+    if(count!=0)
+      @averageAttempts=sum.to_f/count.to_f
+    end
   end
 
   # GET /scores/1
@@ -77,10 +86,10 @@ class ScoresController < ApplicationController
   # DELETE /scores/1.json
   def destroy
     @score.destroy
-    respond_to do |format|
-      format.html { redirect_to scores_url, notice: 'Score was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+
+    flash[:success] = "Attempt deleted"
+    redirect_to scores_url
+
   end
 
   private

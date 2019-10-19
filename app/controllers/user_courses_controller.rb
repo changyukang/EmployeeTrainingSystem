@@ -4,7 +4,7 @@ class UserCoursesController < ApplicationController
   # GET /user_courses
   # GET /user_courses.json
   def index
-    @user_courses = UserCourse.all
+    @user_courses = UserCourse.paginate(:page => params[:page], :per_page=>20)
   end
 
   # GET /user_courses/1

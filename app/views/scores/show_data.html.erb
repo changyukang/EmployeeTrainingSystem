@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @currentArticle.title %></h1>
+  <p>
+    <%= form_tag "", id: "score-form", method: :get do %>
+      <%= select_tag 'article_id', options_for_select(@articles.collect{ |a| [a.title, a.id] }) %>
+      <%=submit_tag "Filter", disable_with: 'Filtering...', class: 'btn btn-block btn-default' %>
+    <%end%>
+  </p>
+
+  <%= column_chart @test %>
+
+  <h5>Mean Score:</h5> <%= @averageScore %>
+  <h5>Mean Attempts:</h5> <%= @averageAttempts %>
+  
+
+  
+ <!--<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Article</th>
+      <th>Score</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+
+ <tbody>
+    <% @scores.each do |score| %>
+      <tr>
+        <td><%= score.user_id %></td>
+        <td><%= score.article_id %></td>
+        <td><%= score.score %></td>
+        <td><%= link_to 'Show', score %></td>
+        <td><%= link_to 'Edit', edit_score_path(score) %></td>
+        <td><%= link_to 'Destroy', score, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>-->
+
+<br/>
+<br/>
+<br/>
+<%= link_to 'All scores', scores_path%>

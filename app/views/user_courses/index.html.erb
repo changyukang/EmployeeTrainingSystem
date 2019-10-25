@@ -4,12 +4,15 @@
 
 <p>
   <ul class="users">
+  	<%= will_paginate @user_courses %>
     <% @user_courses.each do |uc| %>
     <li>
     <%= User.where(:id => uc.user_id).pluck(:name).first %> | 
     <%= Course.where(:id => uc.course_id).pluck(:name).first %> | 
-    <%= uc.progress*100 %>%
+    <%= uc.progress %>% |
+    <%= link_to 'Edit', edit_user_course_path(uc) %>
     </li>
-    <% end %>  
+    <% end %>
+    <%= will_paginate @user_courses %> 
 </ul>
 </p>

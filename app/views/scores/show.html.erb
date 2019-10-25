@@ -2,18 +2,15 @@
 
 <p>
   <strong>User:</strong>
-  <%= @score.user_id %>
+  <%= User.find(@score.user_id).name %>
 </p>
 
 <p>
-  <strong>Article:</strong>
-  <%= @score.article_id %>
+  <strong>Quiz:</strong>
+  <%= Article.find(@score.article_id).title%>
 </p>
 
 <p>
   <strong>Score:</strong>
-  <%= @score.score %>
+  <%= @score.score %>%
 </p>
-
-<%= link_to 'Edit', edit_score_path(@score) %> |
-<%= link_to 'Back', scores_path %>

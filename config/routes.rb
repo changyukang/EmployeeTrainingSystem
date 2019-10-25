@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/quizzes/',    to: 'courses#show_quizzes'
   get '/mycourses/',    to: 'courses#show_user_courses'
   get '/new/',    to: 'courses#new'
+  get '/data/',    to: 'scores#show_data'
   resources :courses
   resources :articles
   get 'sessions/new'

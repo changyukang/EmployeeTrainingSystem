@@ -1,12 +1,13 @@
 <% provide(:name, 'All groups') %>
 <h1>All groups</h1>
 
+<%= pie_chart UserGroup.joins(:group).group('groups.name').count, library: {legend:{position: "bottom"}} %>
 
 <ul class="users">
 <%= will_paginate @groups %>  
   <% @groups.each do |group| %>
     <%= render group %>  
-  <% end %>  
+  <% end %> 
 <%= will_paginate @group %>
 </ul>
 

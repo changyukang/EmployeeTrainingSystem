@@ -15,14 +15,6 @@ class UserCoursesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create user_course" do
-    assert_difference('UserCourse.count') do
-      post user_courses_url, params: { user_course: { course_id: @user_course.course_id, progress: @user_course.progress, user_id: @user_course.user_id } }
-    end
-
-    assert_redirected_to user_course_url(UserCourse.last)
-  end
-
   test "should show user_course" do
     get user_course_url(@user_course)
     assert_response :success
@@ -33,10 +25,6 @@ class UserCoursesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should update user_course" do
-    patch user_course_url(@user_course), params: { user_course: { course_id: @user_course.course_id, progress: @user_course.progress, user_id: @user_course.user_id } }
-    assert_redirected_to user_course_url(@user_course)
-  end
 
   test "should destroy user_course" do
     assert_difference('UserCourse.count', -1) do

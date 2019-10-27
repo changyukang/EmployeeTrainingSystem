@@ -1,8 +1,8 @@
 class QuizzesController < ApplicationController
   before_action :logged_in_user
   before_action :set_quiz, only: [:show, :edit, :update, :destroy]
-
-  #public void receive(integer data_value){}
+  before_action :manager_user,   only: [:index, :edit, :update]
+  before_action :admin_user, only: :destroy
 
   # GET /quizzes
   # GET /quizzes.json
@@ -101,11 +101,15 @@ class QuizzesController < ApplicationController
     answers = params[:answer]
     count=0
 
-    answers.each do |question_id, answer_id|
-      @answer=Answer.find(answer_id)
-      if @answer.correct_answer
-        count=count+1
-      else
+    if answers.blank?
+      #skip
+    else
+      answers.each do |question_id, answer_id|
+        @answer=Answer.find(answer_id)
+        if @answer.correct_answer
+          count=count+1
+        else
+        end
       end
     end
 
@@ -124,6 +128,16 @@ class QuizzesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_quiz
       @quiz = Quiz.find(params[:id])
+    end
+
+    # Confirms an admin user.
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
+    end
+
+      # Confirms a manager user.
+    def manager_user
+      redirect_to(root_url) unless current_user.manager?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

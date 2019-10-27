@@ -1,6 +1,8 @@
 class ScoresController < ApplicationController
   before_action :logged_in_user
   before_action :set_score, only: [:show, :edit, :update, :destroy]
+  before_action :manager_user,   only: [:index]
+  before_action :admin_user, only: :destroy
 
   # GET /scores
   # GET /scores.json
@@ -101,5 +103,15 @@ class ScoresController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def score_params
       params.require(:score).permit(:user_id, :article_id, :score)
+    end
+
+    # Confirms an admin user.
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
+    end
+
+      # Confirms a manager user.
+    def manager_user
+      redirect_to(root_url) unless current_user.manager?
     end
 end

@@ -101,11 +101,15 @@ class QuizzesController < ApplicationController
     answers = params[:answer]
     count=0
 
-    answers.each do |question_id, answer_id|
-      @answer=Answer.find(answer_id)
-      if @answer.correct_answer
-        count=count+1
-      else
+    if answers.blank?
+      #skip
+    else
+      answers.each do |question_id, answer_id|
+        @answer=Answer.find(answer_id)
+        if @answer.correct_answer
+          count=count+1
+        else
+        end
       end
     end
 

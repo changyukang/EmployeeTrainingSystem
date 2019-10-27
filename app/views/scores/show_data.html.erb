@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @currentArticle.title %></h1>
+  <p>
+    <%= form_tag "", id: "score-form", method: :get do %>
+      <%= select_tag 'article_id', options_for_select(@articles.collect{ |a| [a.title, a.id] }) %>
+      <%=submit_tag "Filter", disable_with: 'Filtering...', :style => "width:400px;", class: 'btn btn-primary' %>
+    <%end%>
+  </p>
+
+  <%= column_chart @test %>
+
+  <h5>Mean Score:</h5> <%= @averageScore %>
+  <h5>Mean Attempts:</h5> <%= @averageAttempts %>
+
+<br/>
+<br/>
+<br/>
+<%= link_to 'All scores', scores_path%>

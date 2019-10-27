@@ -13,32 +13,27 @@
 
 <p id="notice"><%= notice %></p>
 
-<dl>
-  <dt>Name:</dt>
-  <dd><%= @user.name %></dd>
+<ul style="list-style-type:none;">
+  <li><strong>Name:</strong> <%= @user.name %></li>
 
-  <dt>Email:</dt>
-  <dd><%= @user.email %></dd>
+  <li><strong>Email:</strong><%= @user.email %></li>
 
-  <dt>Job Title:</dt>
-  <dd><%= @user.jobTitle %></dd>
+  <li><strong>Job Title:</strong><%= @user.jobTitle %></li>
 
-  <dt>Phone:</dt>
-  <dd><%= @user.phone %></dd>
+  <li><strong>Phone:</strong><%= @user.phone %></li>
 
-  <dt>Address:</dt>
-  <dd><%= @user.address %></dd>
+  <li><strong>Address:</strong><%= @user.address %></li>
 
-  <dt>Date of Birth:</dt>
-  <dd><%= @user.DoB %></dd>
+  <li><strong>Date of Birth:</strong><%= @user.DoB %></li>
+  <br/>
+  <li><strong>Groups:</strong></li>
 
-</dl>
-
-<% @memberships.each do |membership| %>
-    <ul>
+  <ul>
+    <% @memberships.each do |membership| %>
       <li><%= link_to membership.name, membership %></li>
-    </ul>
-<% end %>
+    <% end %>
+  </ul>
+</ul>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+
+<%= link_to 'Edit Profile', edit_user_path(@user) %>

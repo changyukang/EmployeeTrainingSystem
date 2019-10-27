@@ -1,8 +1,8 @@
 class QuizzesController < ApplicationController
   before_action :logged_in_user
   before_action :set_quiz, only: [:show, :edit, :update, :destroy]
-
-  #public void receive(integer data_value){}
+  before_action :manager_user,   only: [:index, :edit, :update]
+  before_action :admin_user, only: :destroy
 
   # GET /quizzes
   # GET /quizzes.json
@@ -13,6 +13,22 @@ class QuizzesController < ApplicationController
   # GET /quizzes/1
   # GET /quizzes/1.json
   def show
+    @user = User.find(session[:user_id])
+    @quiz=Quiz.find(params[:id])
+    @article=Article.find(params[:id])
+
+    if(Score.where(["user_id = ? and article_id = ? and score > ?", @user.id, @quiz.id, 49]).blank?)
+      if(Score.find_by(user_id: @user.id, article_id: @quiz.id, score: -1).blank?)
+        @score = Score.new({user_id: @user.id, article_id: @quiz.id, score: -1})
+        @score.save
+      else
+        @score=Score.find_by(user_id: @user.id, article_id: @quiz.id, score: -1)
+      end
+    else
+      flash[:danger] = "Quiz already passed"
+      redirect_to(@article)
+    end
+
   end
 
   # GET /quizzes/new
@@ -79,38 +95,49 @@ class QuizzesController < ApplicationController
     @quiz=Quiz.find(params[:quiz_id])
     @course=Course.find(@quiz.course_id)
     @course_progress=UserCourse.find_by(user_id: @user.id, course_id: @course.id)
+    @score = Score.find_by(user_id: @user.id, article_id: @quiz.id, score: -1)
 
     total=@quiz.questions.count
     answers = params[:answer]
     count=0
 
-    answers.each do |question_id, answer_id|
-      @answer=Answer.find(answer_id)
-      if @answer.correct_answer
-        count=count+1
-      else
+    if answers.blank?
+      #skip
+    else
+      answers.each do |question_id, answer_id|
+        @answer=Answer.find(answer_id)
+        if @answer.correct_answer
+          count=count+1
+        else
+        end
       end
     end
 
     result=((count.to_f)/(total.to_f))*100
+    @score.update_attribute(:score, result)
 
-    @score=Score.new({user_id: @user.id, article_id: @quiz.article_id, score: result})
-    @score.save
-
-    if result>90
-
-      temp1=(@course_progress.progress.to_f)*(@course.totalQuizzes.to_f)+1
+    if result>=50
+      temp1=((@course_progress.progress.to_f)/100)*(@course.totalQuizzes.to_f)+1
       temp=(temp1.to_f)/(@course.totalQuizzes.to_f)*100
       @course_progress.update_attribute(:progress, temp)
-      
     end
-    redirect_to @score
+    render js: "window.location='#{score_path(@score)}'"
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_quiz
       @quiz = Quiz.find(params[:id])
+    end
+
+    # Confirms an admin user.
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
+    end
+
+      # Confirms a manager user.
+    def manager_user
+      redirect_to(root_url) unless current_user.manager?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

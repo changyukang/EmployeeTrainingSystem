@@ -1,5 +1,18 @@
-<h1>New User Course</h1>
+<% provide(:title, 'Assign user to Course') %>
+<h1>Assign user to Course</h1>
 
-<%= render 'form', user_course: @user_course %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user_course) do |f| %>
 
-<%= link_to 'Back', user_courses_path %>
+    	<%= render 'shared/error_messages', obj: @user_course %>
+
+    	<%= f.label :User %>
+      	<%= f.collection_select :user_id, User.order(:name),:id,:name, include_blank: true %>
+      	<%= f.label :Course %>
+      	<%= f.collection_select :course_id, Course.order(:name),:id,:name, include_blank: true %>
+
+      	<%= f.submit "Assign user", class: "btn btn-primary" %>
+    <% end %>
+
+<%= link_to 'Back', courses_path %>

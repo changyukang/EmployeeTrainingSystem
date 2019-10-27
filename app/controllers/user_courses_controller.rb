@@ -4,7 +4,7 @@ class UserCoursesController < ApplicationController
   # GET /user_courses
   # GET /user_courses.json
   def index
-    @user_courses = UserCourse.all
+    @user_courses = UserCourse.paginate(:page => params[:page], :per_page=>20)
   end
 
   # GET /user_courses/1
@@ -26,15 +26,12 @@ class UserCoursesController < ApplicationController
   def create
     @user_course = UserCourse.new(user_course_params)
 
-    respond_to do |format|
-      if @user_course.save
-        format.html { redirect_to @user_course, notice: 'User course was successfully created.' }
-        format.json { render :show, status: :created, location: @user_course }
-      else
-        format.html { render :new }
-        format.json { render json: @user_course.errors, status: :unprocessable_entity }
-      end
-    end
+    if @user_course.save
+      flash[:success] = "User Assigned"
+      redirect_to root_url
+    else
+      render 'new'
+    end  
   end
 
   # PATCH/PUT /user_courses/1

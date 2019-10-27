@@ -4,5 +4,9 @@
 
 <%= link_to 'Quiz', quiz_path(@quiz) %>
 
+<% if current_user.manager? %>
+  <%= link_to 'Edit', edit_article_path(@article) %> | 
+<% end %>
+
 
 <%= link_to 'Back', articles_path %>

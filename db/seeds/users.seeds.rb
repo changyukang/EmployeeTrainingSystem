@@ -88,3 +88,5 @@ UserGroup.create!(user_id: 4, group_id: 2)
 
 UserGroup.create!(user_id: 5, group_id: 3)
 
+UserGroup.create!(user_id: 5, group_id: 1)
+

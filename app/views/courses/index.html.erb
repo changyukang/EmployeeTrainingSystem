@@ -5,13 +5,11 @@
 <ul class="courses">
   <%= will_paginate @courses%>  
     <% @courses.each do |course| %>
-      <h4>
-        <strong><%= link_to course.name, course %>
+      <h4> <strong><%= link_to course.name, course %> </strong></h4> <%= "group"%><%=course.group_id%>
+      
           <% if current_user.manager? %>
-            | <%= link_to "delete", course, method: :delete, data: { confirm: "You sure?" } %>
+            <%= link_to "delete", course, method: :delete, data: { confirm: "You sure?" } %>
           <% end %>
-        </strong>
-      </h4>
     <% end %> 
   <%= will_paginate @courses%>
 </ul>

@@ -53,7 +53,8 @@ class QuizzesController < ApplicationController
     @article=Article.find(@quiz.article_id)
     @course=Course.find(@article.course_id)
     temp=@course.totalQuizzes+1
-    @course.update(:totalQuizzes, temp)
+    # @course.update(:totalQuizzes, temp)
+    Course.update({totalQuizzes: temp})
 
 
     respond_to do |format|

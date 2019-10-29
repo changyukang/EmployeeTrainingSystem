@@ -6,6 +6,7 @@
 <ul class="users">
 <%= will_paginate @groups %>  
   <% @groups.each do |group| %>
+    <%#= "group:"%><%#=group.id%>
     <%= render group %>  
   <% end %> 
 <%= will_paginate @group %>

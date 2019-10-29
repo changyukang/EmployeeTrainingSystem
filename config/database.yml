@@ -50,6 +50,6 @@ test:
 #
 production:
   <<: *default
-  database: ETS_production
-  username: ETS
-  password: <%= ENV['ETS_DATABASE_PASSWORD'] %>
+  database: ETS_development
+  # username: admin
+  # password: <%= ENV['ETS_DATABASE_PASSWORD'] %>

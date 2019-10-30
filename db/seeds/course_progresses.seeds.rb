@@ -41,4 +41,10 @@ UserCourse.create!(user_id:  5,
              course_id: 5,
              progress: 0)
 
+UserCourse.create!(user_id:  5,
+             course_id: 1,
+             progress: 0)
 
+UserCourse.create!(user_id:  5,
+             course_id: 2,
+             progress: 0)

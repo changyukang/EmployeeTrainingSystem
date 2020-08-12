@@ -37,7 +37,7 @@ gem 'better_errors', '~> 2.1', '>= 2.1.1'
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'will_paginate-bootstrap'
 
-gem 'chartkick', '~> 1.4', '>= 1.4.1'
+gem 'chartkick', '~> 3.4'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
